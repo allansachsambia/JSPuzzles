@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
+import MyRedirectComponent from './MyRedirectComponent';
+import My404Component from './My404Component';
 import Dashboard from './Dashboard';
 
 class App extends Component {
@@ -17,7 +19,7 @@ class App extends Component {
       case null:
         return;
       case false:
-        return <Route exact path={path} component={Landing} />;
+        return <Route exact path={path} component={MyRedirectComponent} />;
       default:
         return <Route exact path={path} component={component} />;
     }
@@ -29,8 +31,11 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
-            <Route exact path="/" component={Landing} />
-            {this.protectedRoute('/dashboard', Dashboard)}
+            <Switch>
+              <Route exact path="/" component={Landing} />
+              {this.protectedRoute('/dashboard', Dashboard)}
+              <Route component={My404Component} />
+            </Switch>
           </div>
         </BrowserRouter>
       </div>
