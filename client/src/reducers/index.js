@@ -1,6 +1,20 @@
 import { combineReducers } from 'redux';
-import authReducer from './authReducer';
+import auth from './auth';
+import questions from './questions';
+import solutions from './solutions';
+import code from './set_code';
+import error from './set_error';
+import current from './set_current';
+import answers from './set_answers';
+import dbCode from './dbCode';
 
 export default combineReducers({
-  auth: authReducer
+  auth,
+  dbCode,
+  questions,
+  code,
+  error,
+  current,
+  solutions,
+  answers
 });

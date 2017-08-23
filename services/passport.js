@@ -21,7 +21,6 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: '/auth/google/callback',
-      // Allows you to use app in heroku...with https.
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
@@ -29,7 +28,10 @@ passport.use(
       if (existingUser) {
         done(null, existingUser);
       } else {
-        const user = await new User({ googleId: profile.id }).save();
+        const user = await new User({
+          googleId: profile.id,
+          displayName: profile.displayName
+        }).save();
         done(null, user);
       }
     }

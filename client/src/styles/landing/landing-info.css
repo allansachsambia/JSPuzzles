@@ -1,0 +1,44 @@
+@import "../colors";
+
+.landing-info {
+  background: #ffffff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: Roboto, sans-serif;
+  color: #045ba4;
+  padding: 2rem 2rem 8rem 2rem;
+
+  .fa {
+    font-size: 20rem;
+    margin: 0 0 4rem 0;
+  }
+
+  .info-subsection {
+    width: 50%;
+    max-width: 70rem;
+    margin: 4rem;
+    text-align: center;
+
+    .info-subsection-description {
+      margin-bottom: 2rem;
+      font-size: 1.25rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .landing-info {
+    flex-direction: column;
+    .info-subsection {
+      width: auto !important;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .landing-info {
+    /* ... */
+  }
+}

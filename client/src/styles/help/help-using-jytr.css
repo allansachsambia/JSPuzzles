@@ -1,0 +1,105 @@
+@import "../colors";
+
+.help-using-jytr {
+  font-family: "Helvetica Neue", sans-serif;
+  color: #282a36;
+  background: #f6f6f6;
+
+  .inner-wrap {
+    background: #ffffff;
+    padding: 4rem 4rem 8rem 4rem;
+    width: 85%;
+    max-width: 90rem;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.5rem;
+
+    .menu {
+      font-style: italic;
+      font-weight: bold;
+      height: 4rem;
+      padding: 0;
+      font-size: 1.8rem;
+      list-style-type: none;
+      margin-bottom: 5rem;
+    }
+
+    .menu li {
+      display: inline;
+      margin-right: 1.5rem;
+    }
+
+    .menu li.this {
+      color: white;
+      border-radius: 2rem;
+    }
+
+    .menu li a {
+      text-decoration: none;
+      color: #666666;
+      padding: 0rem;
+      border-bottom: 3px solid white;
+    }
+
+    .menu li.this a {
+      border-bottom: 3px solid black;
+    }
+
+    .menu:hover > li > a {
+      border-bottom: 3px solid white;
+    }
+
+    .menu li a:hover {
+      border-bottom: 3px solid black;
+    }
+
+    .eraser-icon path {
+      fill: none;
+      stroke: #000000;
+      stroke-width: 4px;
+    }
+
+    .help-section {
+      margin-bottom: 6rem;
+    }
+
+    p {
+      margin: 1.5rem 0;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .help-section .fa {
+      font-size: 4rem;
+      margin-right: 2rem;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .help-using-jytr {
+    .inner-wrap {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .help-using-jytr {
+    .inner-wrap {
+      .menu {
+        font-style: normal;
+        /*background: pink;*/
+        text-align: center;
+        font-weight: bold;
+        height: 4rem;
+        padding: 0;
+        font-size: 1.3rem;
+        list-style-type: none;
+      }
+    }
+  }
+}
