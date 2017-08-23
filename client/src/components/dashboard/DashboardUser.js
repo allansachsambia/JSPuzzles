@@ -7,7 +7,6 @@ import * as actions from '../../actions';
 import Nav from '../Nav';
 import Footer from '../Footer';
 import _ from 'lodash';
-import Identicons from 'identicons-react';
 import DashboardResetModal from './DashboardResetModal';
 import DashboardUserStyles from '../../styles/dashboard/dashboard-user.css';
 
@@ -44,7 +43,7 @@ export class DashboardUser extends Component {
       const name = this.props.auth.displayName || 'guest';
       return (
         <div className="profile-identicon-wrap">
-          <Identicons id={name} width={70} size={3} />
+          <div />
         </div>
       );
     } else {

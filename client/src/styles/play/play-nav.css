@@ -1,4 +1,4 @@
-@import "../colors";
+
 
 .play-nav {
   font-family: "Helvetica Neue", sans-serif;
@@ -108,7 +108,7 @@
       margin: 0;
       padding: 0;
       z-index: 999999;
-      box-shadow: 1px 1px 5px $box-shadow-light;
+      box-shadow: 1px 1px 5px #cccccc;
     }
 
     .options-list * {

@@ -5,7 +5,6 @@ import * as actions from '../actions';
 import { Link } from 'react-router-dom';
 import Logo from '../svgs/Logo';
 import GuestIcon from '../svgs/GuestIcon';
-import Identicons from 'identicons-react';
 import DashboardNavStyles from './../styles/nav.css';
 
 const timeouts = [];
@@ -59,7 +58,7 @@ class Nav extends Component {
         const name = this.props.auth.displayName || 'guest';
         return (
           <div className="identicon-wrap">
-            <Identicons id={name} width={25} size={3} />
+            <div />
           </div>
         );
       } else {
@@ -78,7 +77,7 @@ class Nav extends Component {
       if (this.props.auth) {
         return (
           <div className="identicon-wrap">
-            <Identicons id={name} width={25} size={3} />
+            <div />
           </div>
         );
       } else {
