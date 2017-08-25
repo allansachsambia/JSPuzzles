@@ -106,6 +106,8 @@ class Nav extends Component {
       }
     });
 
+    console.log(this.props.auth);
+
     return (
       <nav className={`nav ${this.props.for}`}>
         <div className="left-side">
