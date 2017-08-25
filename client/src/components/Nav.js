@@ -57,8 +57,11 @@ class Nav extends Component {
       if (this.props.auth) {
         const name = this.props.auth.displayName || 'guest';
         return (
-          <div className="identicon-wrap">
-            <div />
+          // <div className="identicon-wrap">
+          //   <div />
+          // </div>
+          <div className="guest-fa-wrap">
+            <i className="fa fa-user-circle" aria-hidden="true" />
           </div>
         );
       } else {
@@ -92,8 +95,6 @@ class Nav extends Component {
     const authLink = this.props.auth
       ? ['/auth/google', 'Sign in']
       : ['/api/logout', 'Sign out'];
-
-    const username = this.props.auth ? this.props.auth.displayName : '';
 
     window.addEventListener('resize', () => {
       if (window.innerWidth > 700) {
@@ -135,7 +136,7 @@ class Nav extends Component {
             >
               {this.renderIcon()}
               <span className="guest-text">
-                {this.props.auth ? username : 'Guest'}
+                {this.props.auth ? this.props.auth.displayName : 'Guest'}
               </span>
             </div>
             <ul className="options-list">

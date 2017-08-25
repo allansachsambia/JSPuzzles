@@ -1,5 +1,3 @@
-
-
 .dashboard-user * {
   /*outline: 1px solid pink;*/
 }
@@ -46,6 +44,11 @@
   .top-dash-image-wrap {
     width: 15rem;
     height: 15rem;
+  }
+
+  .fa-user-circle {
+    font-size: 14.5rem;
+    color: #008aff;
   }
 
   .top-dash-image {

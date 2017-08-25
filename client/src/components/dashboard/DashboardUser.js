@@ -43,7 +43,7 @@ export class DashboardUser extends Component {
       const name = this.props.auth.displayName || 'guest';
       return (
         <div className="profile-identicon-wrap">
-          <div />
+          {/* <Identicons id={name} width={70} size={3} /> */}
         </div>
       );
     } else {
@@ -86,7 +86,8 @@ export class DashboardUser extends Component {
         <div className="inner-wrap">
           <div className="top-dash">
             <div className="top-dash-image-wrap">
-              {this.renderImage()}
+              {/* this.renderImage() */}
+              <i className="fa fa-user-circle" aria-hidden="true" />
             </div>
             <div className="top-dash-profile">
               <div className="top-dash-username">

@@ -1668,13 +1668,3 @@ function mapStateToProps({
 }
 
 export default connect(mapStateToProps, actions)(PlayAsGuest);
-
-// import React, { Component } from 'react';
-//
-// class PlayAsGuest extends Component {
-//   render() {
-//     return <div>Hello World</div>;
-//   }
-// }
-//
-// export default PlayAsGuest;

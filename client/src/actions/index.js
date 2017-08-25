@@ -49,13 +49,13 @@ export const fetchUser = () => async dispatch => {
 // Update Code
 export const updateCode = values => async dispatch => {
   const res = await axios.put('/api/code', values);
-  dispatch({ type: FETCH_USER, payload: res.data });
+  dispatch({ type: FETCH_CODE, payload: res.data });
 };
 
 // Post Initial Code
 export const createCode = values => async dispatch => {
   const res = await axios.post('/api/code', values);
-  dispatch({ type: FETCH_USER, payload: res.data });
+  dispatch({ type: FETCH_CODE, payload: res.data });
 };
 
 // Fetch code

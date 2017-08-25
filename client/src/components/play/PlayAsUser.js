@@ -100,10 +100,6 @@ export class PlayAsUser extends Component {
   }
 
   saveButtonClicked() {
-    this.updateCode();
-  }
-
-  updateCode() {
     const answers = this.props.answers;
     const newAnswers = answers[0].map((answer, i) => {
       if (i === this.props.current) {
@@ -1734,13 +1730,3 @@ function mapStateToProps({
 }
 
 export default connect(mapStateToProps, actions)(PlayAsUser);
-
-// import React, { Component } from 'react';
-//
-// class PlayAsUser extends Component {
-//   render() {
-//     return <div>Hello World</div>;
-//   }
-// }
-//
-// export default PlayAsUser;
