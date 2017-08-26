@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 *,
 *:before,
 *:after {
@@ -8,38 +10,12 @@ html {
   font-size: 10px;
 }
 
-h6 {
-  font-size: 1rem;
-}
-h5 {
-  font-size: 2rem;
-}
-h4 {
-  font-size: 3rem;
-}
-h3 {
-  font-size: 4rem;
-}
-h2 {
-  font-size: 5rem;
-}
-h1 {
-  font-size: 6rem;
-}
-
 .debug * {
   border: .1rem dashed silver;
 }
 
 *:focus {
-  outline: 0;
-}
-
-body {
-  background: #fff;
-  font-size: .75rem;
-  margin: 0px;
-  padding: 0px;
+  outline: 0 !important;
 }
 
 body:has(> .CodeMirror) {

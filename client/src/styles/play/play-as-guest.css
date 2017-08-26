@@ -1,12 +1,13 @@
 .play-as-guest {
   .CodeMirror {
     font-size: 2rem;
-    height: calc(100vh - 15rem);
-    min-height: 15rem;
+    height: calc(100vh - 23rem);
+    /*min-height: 15rem;*/
     margin-top: 6rem;
     margin-left: 0rem;
     margin-right: 0rem;
-    padding: 2rem 1rem;
+    /*padding: 2rem 1rem;*/
+    padding-bottom: 4rem 0;
     font-family: "Roboto Mono", "Geneva", "sans-serif";
 
     ::-webkit-scrollbar {
@@ -85,7 +86,7 @@
 @media (max-width: 700px) {
   .play-as-guest {
     .CodeMirror {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       height: calc(90vh - 5rem);
       padding: 1rem .5rem;
       height: calc(100vh - 14rem);

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../Nav';
 import Footer from '../Footer';
+import HelpSubmenu from './HelpSubmenu';
 import HelpUsingJytrStyles from './../../styles/help/help-using-jytr.css';
 
 class HelpUsingJytr extends Component {
@@ -14,43 +15,59 @@ class HelpUsingJytr extends Component {
       <div className="help-using-jytr">
         <Nav for="help" />
         <div className="inner-wrap">
-          <ul className="menu">
-            <li className="this">
-              <Link to={'/help'}>USING JYTR</Link>
-            </li>
-            <li>
-              <Link to={'/cheat-sheet'}>CHEAT SHEET</Link>
-            </li>
-          </ul>
+          <HelpSubmenu />
 
-          <p className="help-section">
-            <i className="fa fa-tachometer" aria-hidden="true" />
-            The dashboard icon opens the dashboard. This gives access to your
-            profile as well as more detailed information on your current
-            progress.
+          <p className="help-using-jytr-section-block">
+            <span className="help-using-jytr-icon-wrap">
+              <i className="fa fa-tachometer" aria-hidden="true" />
+            </span>
+            <span className="help-using-jytr-description">
+              This icon opens the dashboard which gives access to your profile
+              as well as more detailed information on your current progress.
+            </span>
           </p>
 
-          <p className="help-section">
-            <i className="fa fa-flag" aria-hidden="true" />
-            The flag icon allows the user to cheat and just see the answer. This
-            is useful if the user does not understand the question or if they
-            are having a lot of difficulty in solving the problem.
+          <p className="help-using-jytr-section-block">
+            <span className="help-using-jytr-icon-wrap">
+              <i className="fa fa-floppy-o" aria-hidden="true" />
+            </span>
+            <span className="help-using-jytr-description">
+              This option will appear if you are logged in. Clicking this will
+              allow you to save your progress and come back later.
+            </span>
           </p>
 
-          <p className="help-section">
-            <i className="fa fa-eraser" aria-hidden="true" />
-            The eraser icon is like the bomb icon but not for the whole
-            application, only the specific question the user is working on. In
-            other words, it allows you to reset the current question completely,
-            but not the whole application.
+          <p className="help-using-jytr-section-block">
+            <span className="help-using-jytr-icon-wrap">
+              <i className="fa fa-flag" aria-hidden="true" />
+            </span>
+            <span className="help-using-jytr-description">
+              The flag allows the user to cheat and just see the answer. This is
+              useful if the user does not understand the question or if they are
+              having a lot of difficulty in solving the problem.
+            </span>
           </p>
 
-          <p className="help-section">
-            <i className="fa fa-forward" aria-hidden="true" />
-            The forward icon will allow you to check whether the answer you
-            provided is correct or not and subsequently allow you to move on if
-            it is. If the answer is wrong or formed improperly an error will be
-            displayed.
+          <p className="help-using-jytr-section-block">
+            <span className="help-using-jytr-icon-wrap">
+              <i className="fa fa-eraser" aria-hidden="true" />
+            </span>
+            <span className="help-using-jytr-description">
+              Clicking the eraser resets the current question completely to it's
+              original state so you can start over again.
+            </span>
+          </p>
+
+          <p className="help-using-jytr-section-block">
+            <span className="help-using-jytr-icon-wrap">
+              <i className="fa fa-forward" aria-hidden="true" />
+            </span>
+            <span className="help-using-jytr-description">
+              The forward icon will allow you to check whether the answer you
+              provided is correct or not and subsequently allow you to move on
+              if it is. If the answer is wrong or formed improperly an error
+              will be displayed.
+            </span>
           </p>
         </div>
         <Footer />

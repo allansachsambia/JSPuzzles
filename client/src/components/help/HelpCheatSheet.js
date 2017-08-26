@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions';
 import Nav from '../Nav';
 import Footer from '../Footer';
+import HelpSubmenu from './HelpSubmenu';
 import HelpCheatSheetStyles from '../../styles/help/help-cheat-sheet.css';
 
 class HelpCheatSheet extends Component {
@@ -46,21 +47,10 @@ class HelpCheatSheet extends Component {
       <div className="help-cheat-sheet">
         <Nav for="help" />
         <div className="inner-wrap">
-          <ul className="menu">
-            <a name="table-of-contents">
-              {''}
-            </a>
-            <li>
-              <Link to={'/help'}>USING JYTR</Link>
-            </li>
-            <li className="this">
-              <Link to={'/cheat-sheet'}>CHEAT SHEET</Link>
-            </li>
-          </ul>
+          <HelpSubmenu />
 
           <div className="description">
             <div className="table-of-contents">
-              <h5>Table of Contents</h5>
               <ul className="contents-list">
                 {tableOfContentsListItemsBlock}
               </ul>
