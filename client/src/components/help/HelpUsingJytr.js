@@ -63,10 +63,10 @@ class HelpUsingJytr extends Component {
               <i className="fa fa-forward" aria-hidden="true" />
             </span>
             <span className="help-using-jytr-description">
-              The forward icon will allow you to check whether the answer you
-              provided is correct or not and subsequently allow you to move on
-              if it is. If the answer is wrong or formed improperly an error
-              will be displayed.
+              The forward button checks whether the answer you provided is
+              correct or not, allowing you to move on if it is. If the answer is
+              wrong or formed improperly an error will be displayed. It also
+              saves your progress if you are signed in.
             </span>
           </p>
         </div>

@@ -8,9 +8,9 @@ import Nav from '../Nav';
 import Footer from '../Footer';
 import _ from 'lodash';
 import DashboardResetModal from './DashboardResetModal';
-import DashboardUserStyles from '../../styles/dashboard/dashboard-user.css';
+import DashboardGuestStyles from './../../styles/dashboard/dashboard-guest.css';
 
-export class DashboardUser extends Component {
+export class DashboardGuest extends Component {
   componentDidMount() {
     if (this.props.auth) {
       this.props.fetchCode();
@@ -30,7 +30,7 @@ export class DashboardUser extends Component {
     document.querySelector('.box').style.display = 'initial';
   }
 
-  initialSetup() {
+  renderQuestionsList() {
     return this.props.questions.map(({ name }, i) => {
       if (this.props.current >= i + 1) {
         return (
@@ -48,36 +48,16 @@ export class DashboardUser extends Component {
     });
   }
 
-  dbSetup() {
-    if (this.props.current !== null) {
-      return this.props.questions.map(({ name }, i) => {
-        if (this.props.current >= i + 1) {
-          return (
-            <li key={i} className="bottom-finished-question">
-              {i + 1}. {name} <i className="fa fa-check" aria-hidden="true" />
-            </li>
-          );
-        } else {
-          return (
-            <li key={i} className="bottom-unfinished-question">
-              {i + 1}. {name}
-            </li>
-          );
-        }
-      });
-    }
-  }
-
   render() {
-    const username = this.props.auth ? this.props.auth.displayName : 'Guest';
+    const username = 'Guest';
     const totalQuestions = this.props.questions.length - 1;
     const amountFinished = this.props.current || 0;
     const percentageCompleted = amountFinished / totalQuestions * 100;
 
     return (
-      <div className="dashboard-user">
-        <Nav username={username} path={'dashboard'} for="dashboard" />
-        <DashboardResetModal userType="user" />
+      <div className="dashboard-guest">
+        <Nav for="dashboard" />
+        <DashboardResetModal userType="guest" />
         <div className="inner-wrap">
           <div className="top-dash">
             <div className="top-dash-image-wrap">
@@ -112,7 +92,7 @@ export class DashboardUser extends Component {
             </div>
           </div>
           <ul className="bottom-list">
-            {this.props.dbCode[0] ? this.dbSetup() : this.initialSetup()}
+            {this.renderQuestionsList()}
           </ul>
         </div>
         <Footer />
@@ -125,4 +105,4 @@ function mapStateToProps({ auth, questions, current, dbCode }) {
   return { auth, questions, current, dbCode };
 }
 
-export default connect(mapStateToProps, actions)(DashboardUser);
+export default connect(mapStateToProps, actions)(DashboardGuest);

@@ -28,6 +28,7 @@ export class PlayAsUser extends Component {
     this.saveButtonClicked = this.saveButtonClicked.bind(this);
     this.forwardButtonClicked = this.forwardButtonClicked.bind(this);
     this.decrementChallenge = this.decrementChallenge.bind(this);
+    this.updateAnswer = this.updateAnswer.bind(this);
     this.onFinished = this.onFinished.bind(this);
     this.dbSetup = this.dbSetup.bind(this);
     this.initialSetup = this.initialSetup.bind(this);
@@ -100,6 +101,10 @@ export class PlayAsUser extends Component {
   }
 
   saveButtonClicked() {
+    this.updateAnswer({ increment: false });
+  }
+
+  updateAnswer({ increment }) {
     const answers = this.props.answers;
     const newAnswers = answers[0].map((answer, i) => {
       if (i === this.props.current) {
@@ -110,7 +115,14 @@ export class PlayAsUser extends Component {
       }
       return answer;
     }, this);
-    this.props.updateCode({ code: newAnswers, current: this.props.current });
+    if (increment) {
+      this.props.updateCode({
+        code: newAnswers,
+        current: this.props.current + 1
+      });
+    } else {
+      this.props.updateCode({ code: newAnswers, current: this.props.current });
+    }
   }
 
   forwardButtonClicked() {
@@ -295,6 +307,7 @@ export class PlayAsUser extends Component {
     this.props.setCurrent(this.props.current + 1);
     this.props.setError('');
     this.props.setCode(this.props.answers[0][this.props.current + 1].code);
+    this.updateAnswer({ increment: true });
   }
 
   displayErrMsg(msg) {

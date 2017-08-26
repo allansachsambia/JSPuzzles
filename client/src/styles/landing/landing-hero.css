@@ -64,6 +64,11 @@
 
     button {
       top: -25rem;
+
+      font-size: 2rem;
+      padding: 1rem 5rem;
+      border-radius: .5rem;
+      border: .4rem solid white;
     }
   }
 }

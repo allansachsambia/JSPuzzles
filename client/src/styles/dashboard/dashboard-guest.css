@@ -1,5 +1,3 @@
-
-
 .dashboard-guest {
   font-family: "Helvetica Neue", sans-serif;
   color: #282a36;
@@ -132,7 +130,7 @@
 @media (max-width: 900px) {
   .dashboard-guest {
     .inner-wrap {
-      width: 90%;
+      width: 100%;
       text-align: center;
     }
 
@@ -184,8 +182,6 @@
 @media (max-width: 700px) {
   .dashboard-guest {
     .inner-wrap {
-      width: 100%;
-
       .button-wrap {
         padding: 2rem;
       }

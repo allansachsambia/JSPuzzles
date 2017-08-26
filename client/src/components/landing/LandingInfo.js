@@ -8,7 +8,7 @@ class LandingInfo extends Component {
     return (
       <div className="landing-info">
         <div className="info-subsection">
-          <h5 className="info-subsection-title">40 Code Challenges!</h5>
+          <div className="info-subsection-title">40 Code Challenges!</div>
           <div>
             <i className="fa fa-bolt" aria-hidden="true" />
           </div>
@@ -19,7 +19,7 @@ class LandingInfo extends Component {
         </div>
 
         <div className="info-subsection">
-          <h5 className="info-subsection-title">Project Details</h5>
+          <div className="info-subsection-title">Project Details</div>
 
           <div>
             <i className="fa fa-github-alt" aria-hidden="true" />

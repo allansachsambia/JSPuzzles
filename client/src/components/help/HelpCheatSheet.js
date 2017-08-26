@@ -27,7 +27,7 @@ class HelpCheatSheet extends Component {
         <a name={solution.name} className="anchor">
           {''}
         </a>
-        <h5 className="solution-title">{`${i + 1}: ${solution.name}`}</h5>
+        <span className="solution-title">{`${i + 1}: ${solution.name}`}</span>
         <pre className="solution-section">
           {solution.solution}
         </pre>

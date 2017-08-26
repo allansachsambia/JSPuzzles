@@ -141,7 +141,7 @@
 @media (max-width: 900px) {
   .dashboard-user {
     .inner-wrap {
-      width: 90%;
+      width: 100%;
       text-align: center;
     }
 
@@ -193,8 +193,6 @@
 @media (max-width: 700px) {
   .dashboard-user {
     .inner-wrap {
-      width: 100%;
-
       .button-wrap {
         padding: 2rem;
       }
