@@ -13,9 +13,7 @@ class LandingInfo extends Component {
             <i className="fa fa-bolt" aria-hidden="true" />
           </div>
           <div className="info-subsection-description">
-            A code challenge game made up of forty FizzBuzzy questions. For more
-            information on this project, check out the&nbsp;
-            <a href="https://github.com/allansachsambia/jytr">repo</a>.
+            A code challenge game made up of forty FizzBuzzy questions.
           </div>
         </div>
 
