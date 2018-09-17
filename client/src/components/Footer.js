@@ -37,7 +37,7 @@ class Footer extends Component {
           </div>
           <div className="copyright">
             <a href="http://allansachsambia.com">
-              Copyright © 2017 Allan Sachs-Ambia
+              Copyright © 2018 Allan Sachs-Ambia
             </a>
           </div>
         </div>

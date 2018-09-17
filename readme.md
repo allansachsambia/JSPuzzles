@@ -169,4 +169,4 @@ Write a function that returns the word 'Holy' if a number passed in is divisible
 
 ## License
 
-(c) 2017 Allan Sachs-Ambia. | Code released under the [MIT License.](https://github.com/allansachsambia/jytr/blob/master/LICENSE.md)
+(c) 2018 Allan Sachs-Ambia. | Code released under the [MIT License.](https://github.com/allansachsambia/jytr/blob/master/LICENSE.md)
