@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import ReactAudioPlayer from 'react-audio-player';
-import Nav from '../Nav';
-import Footer from '../Footer';
-import GeneralFinishedStyles from './../../styles/finished/finished-main.css';
-import congratulations from './../../images/congratulations.gif';
-import applause from './../../audio/applause.mp3';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import ReactAudioPlayer from "react-audio-player";
+import Nav from "../Nav";
+import Footer from "../Footer";
+import congratulations from "./../../images/congratulations.gif";
+import applause from "./../../audio/applause.mp3";
+import Styles from "./finished-main.css";
 
 class GeneralFinished extends Component {
   componentDidMount() {

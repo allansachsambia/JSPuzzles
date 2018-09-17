@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import CodeMirror from 'react-codemirror';
-import _ from 'lodash';
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/addon/selection/active-line';
-import 'codemirror/theme/neo.css';
-import 'codemirror/lib/codemirror.css';
-import * as actions from '../../actions';
-import CloseButton from './../../svgs/CloseButton';
-import DesktopAppLogo from './../../svgs/DesktopAppLogo';
-import Nav from '../Nav';
-import PlayHeader from './PlayHeader';
-import PlayCheatModal from './PlayCheatModal';
-import PlayAsUserStyles from './../../styles/play/play-as-user.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import CodeMirror from "react-codemirror";
+import _ from "lodash";
+import "codemirror/mode/javascript/javascript";
+import "codemirror/addon/selection/active-line";
+import "codemirror/theme/neo.css";
+import "codemirror/lib/codemirror.css";
+import * as actions from "../../actions";
+import CloseButton from "./../../svgs/CloseButton";
+import DesktopAppLogo from "./../../svgs/DesktopAppLogo";
+import Nav from "../Nav";
+import PlayHeader from "./PlayHeader";
+import PlayCheatModal from "./PlayCheatModal";
+import Styles from "./play-as-user.css";
 
 export class PlayAsUser extends Component {
   static initialStateSet = false;
@@ -51,14 +51,14 @@ export class PlayAsUser extends Component {
   }
 
   displayPlayCheatModal() {
-    const modal = document.querySelector('.play-cheat-modal');
-    const modalBox = document.querySelector('.box');
-    modal.style.display = 'initial';
-    modalBox.style.display = 'initial';
+    const modal = document.querySelector(".play-cheat-modal");
+    const modalBox = document.querySelector(".box");
+    modal.style.display = "initial";
+    modalBox.style.display = "initial";
   }
 
   onFinished() {
-    this.props.history.push('/finished');
+    this.props.history.push("/finished");
   }
 
   setCode(newCode) {
@@ -96,7 +96,7 @@ export class PlayAsUser extends Component {
   }
 
   errMsg() {
-    const errMsg = this.props.error ? this.props.error : '';
+    const errMsg = this.props.error ? this.props.error : "";
     return errMsg;
   }
 
@@ -133,14 +133,14 @@ export class PlayAsUser extends Component {
 
   clearButtonClicked() {
     this.props.setCode(this.props.questions[this.props.current].code);
-    this.props.setError('');
+    this.props.setError("");
   }
 
   displayConfirmationModal() {
-    const modal = document.querySelector('.play-reset-modal');
-    const modalBox = document.querySelector('.box');
-    modal.style.display = 'initial';
-    modalBox.style.display = 'initial';
+    const modal = document.querySelector(".play-reset-modal");
+    const modalBox = document.querySelector(".box");
+    modal.style.display = "initial";
+    modalBox.style.display = "initial";
   }
 
   checkFunctionValidity() {
@@ -149,19 +149,19 @@ export class PlayAsUser extends Component {
       this.props.questions[this.props.current].name
     );
     const js = jsRaw
-      .replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '$1')
+      .replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, "$1")
       .trim();
     const reg = new RegExp(
-      '^function\\s+' + functionName + '\\s*\\(.*\\)\\s*\\{(.|\\n)*\\}$'
+      "^function\\s+" + functionName + "\\s*\\(.*\\)\\s*\\{(.|\\n)*\\}$"
     );
     const passedFirstTest = reg.test(js);
     if (passedFirstTest) {
-      this.props.setError('');
-      const scriptEl = document.createElement('script');
+      this.props.setError("");
+      const scriptEl = document.createElement("script");
       scriptEl.textContent = jsRaw;
       document.body.appendChild(scriptEl);
     } else {
-      this.displayErrMsg('Only work within the function body');
+      this.displayErrMsg("Only work within the function body");
     }
   }
 
@@ -297,7 +297,7 @@ export class PlayAsUser extends Component {
         delete document.scripts[1];
       }
       this.props.setCurrent(this.props.current - 1);
-      this.props.setError('');
+      this.props.setError("");
       this.props.setCode(this.props.answers[0][this.props.current - 1].code);
     }
   }
@@ -305,7 +305,7 @@ export class PlayAsUser extends Component {
   incrementChallenge() {
     delete document.scripts[1];
     this.props.setCurrent(this.props.current + 1);
-    this.props.setError('');
+    this.props.setError("");
     this.props.setCode(this.props.answers[0][this.props.current + 1].code);
     this.updateAnswer({ increment: true });
   }
@@ -319,7 +319,7 @@ export class PlayAsUser extends Component {
     this.props.setError(msg);
     this.timeOutStore.push(
       setTimeout(() => {
-        self.props.setError('');
+        self.props.setError("");
       }, 7000)
     );
   }
@@ -329,7 +329,7 @@ export class PlayAsUser extends Component {
     if (window.reverseConsonants) {
       // Try & Catch Block
       try {
-        window.reverseConsonants('The rain in spain falls mainly in the plain');
+        window.reverseConsonants("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
@@ -337,18 +337,18 @@ export class PlayAsUser extends Component {
       // Custom Test
       const check1 =
         window.reverseConsonants(
-          'The rain in spain falls mainly in the plain'
-        ) === 'nlp ht n ylnm sllf nps n nr hT';
+          "The rain in spain falls mainly in the plain"
+        ) === "nlp ht n ylnm sllf nps n nr hT";
       const check2 =
         window.reverseConsonants(
-          'I know now that my wife has become host to a Kandarian demon'
-        ) === 'nmd nrdnK  t tsh mcb sh fw ym tht wn wnk ';
+          "I know now that my wife has become host to a Kandarian demon"
+        ) === "nmd nrdnK  t tsh mcb sh fw ym tht wn wnk ";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -371,22 +371,22 @@ export class PlayAsUser extends Component {
         const by5 = i % 5 === 0;
         const by3and5 = i % 3 === 0 && i % 5 === 0;
         if (by3and5) {
-          checkStore.push(window.fizzBuzzish(i) === 'FizzBuzz');
+          checkStore.push(window.fizzBuzzish(i) === "FizzBuzz");
         } else if (by5) {
-          checkStore.push(window.fizzBuzzish(i) === 'Buzz');
+          checkStore.push(window.fizzBuzzish(i) === "Buzz");
         } else if (by3) {
-          checkStore.push(window.fizzBuzzish(i) === 'Fizz');
+          checkStore.push(window.fizzBuzzish(i) === "Fizz");
         }
       }
-      checkStore.push(window.fizzBuzzish('Hello World') === 'What?');
-      checkStore.push(window.fizzBuzzish(['Hello World']) === 'What?');
-      checkStore.push(window.fizzBuzzish({ Hello: 'World' }) === 'What?');
-      checkStore.push(window.fizzBuzzish(/Hello World/) === 'What?');
+      checkStore.push(window.fizzBuzzish("Hello World") === "What?");
+      checkStore.push(window.fizzBuzzish(["Hello World"]) === "What?");
+      checkStore.push(window.fizzBuzzish({ Hello: "World" }) === "What?");
+      checkStore.push(window.fizzBuzzish(/Hello World/) === "What?");
       const correct = checkStore.every(item => item === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -396,25 +396,25 @@ export class PlayAsUser extends Component {
     if (window.oddsAndEvens) {
       // Try & Catch Block
       try {
-        window.oddsAndEvens('The rain in spain falls mainly in the plain');
+        window.oddsAndEvens("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.oddsAndEvens('The rain in spain falls mainly in the plain') ===
-        'tHe rAiN In sPaIn fAlLs mAiNlY In tHe pLaIn';
+        window.oddsAndEvens("The rain in spain falls mainly in the plain") ===
+        "tHe rAiN In sPaIn fAlLs mAiNlY In tHe pLaIn";
       const check2 =
         window.oddsAndEvens(
-          'I know now that my wife has become host to a Kandarian demon'
-        ) === 'i kNoW NoW ThAt mY WiFe hAs bEcOmE HoSt tO A KaNdArIaN DeMoN';
+          "I know now that my wife has become host to a Kandarian demon"
+        ) === "i kNoW NoW ThAt mY WiFe hAs bEcOmE HoSt tO A KaNdArIaN DeMoN";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -424,26 +424,26 @@ export class PlayAsUser extends Component {
     if (window.doesABodyGood) {
       // Try & Catch Block
       try {
-        window.doesABodyGood('The rain in spain falls mainly in the plain');
+        window.doesABodyGood("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.doesABodyGood('Drink your milk') === 'does a body good';
+        window.doesABodyGood("Drink your milk") === "does a body good";
       const check2 =
-        window.doesABodyGood('Drink your MILK') === 'does a body good';
+        window.doesABodyGood("Drink your MILK") === "does a body good";
       const check3 =
-        window.doesABodyGood('Drink your water') === 'lactose intolerant?';
+        window.doesABodyGood("Drink your water") === "lactose intolerant?";
       const check4 =
-        window.doesABodyGood('Drink your WATER') === 'lactose intolerant?';
+        window.doesABodyGood("Drink your WATER") === "lactose intolerant?";
       const checks = [check1, check2, check3, check4];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -453,7 +453,7 @@ export class PlayAsUser extends Component {
     if (window.randomRepeater) {
       // Try & Catch Block
       try {
-        window.randomRepeater('The rain in spain falls mainly in the plain');
+        window.randomRepeater("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
@@ -461,9 +461,9 @@ export class PlayAsUser extends Component {
       // Custom Test
       const checks = [];
       for (let i = 0; i < 1000; i += 1) {
-        const repeatVal = window.randomRepeater('Hello There');
+        const repeatVal = window.randomRepeater("Hello There");
         const val = repeatVal.slice(0, 11);
-        const valOk = val === 'Hello There';
+        const valOk = val === "Hello There";
         if (valOk) {
           const checkIt = repeatVal.match(/Hello There/g);
           checks.push(checkIt.length <= 10);
@@ -473,7 +473,7 @@ export class PlayAsUser extends Component {
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -483,7 +483,7 @@ export class PlayAsUser extends Component {
     if (window.reverseCharSorter) {
       // Try & Catch Block
       try {
-        window.reverseCharSorter('The rain in spain falls mainly in the plain');
+        window.reverseCharSorter("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
@@ -491,18 +491,18 @@ export class PlayAsUser extends Component {
       // Custom Test
       const check1 =
         window.reverseCharSorter(
-          'The rain in Spain falls mainly in the plain'
-        ) === 'ytsrppnnnnnnmlllliiiiiihhfeeaaaaaTS';
+          "The rain in Spain falls mainly in the plain"
+        ) === "ytsrppnnnnnnmlllliiiiiihhfeeaaaaaTS";
       const check2 =
         window.reverseCharSorter(
-          'I know now that my wife has become host to a Kandarian demon'
-        ) === 'ywwwttttssroooooonnnnnmmmkiihhhfeeeeddcbaaaaaaKI';
+          "I know now that my wife has become host to a Kandarian demon"
+        ) === "ywwwttttssroooooonnnnnmmmkiihhhfeeeeddcbaaaaaaKI";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -512,29 +512,29 @@ export class PlayAsUser extends Component {
     if (window.lucy) {
       // Try & Catch Block
       try {
-        window.lucy(['The rain in spain falls mainly in the plain']);
+        window.lucy(["The rain in spain falls mainly in the plain"]);
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.lucy(['lucy', 'diamonds', 'penguins']) ===
-        'In the sky with diamonds';
-      const check2 = window.lucy(['lucy', 'penguins']) === 'I love Lucy';
+        window.lucy(["lucy", "diamonds", "penguins"]) ===
+        "In the sky with diamonds";
+      const check2 = window.lucy(["lucy", "penguins"]) === "I love Lucy";
       const check3 =
-        window.lucy(['penguins', 'diamonds']) === 'No Lucy right now, thanks';
-      const check4 = window.lucy(['']) === 'No Lucy right now, thanks';
-      const check5 = window.lucy(['lucy']) === 'I love Lucy';
+        window.lucy(["penguins", "diamonds"]) === "No Lucy right now, thanks";
+      const check4 = window.lucy([""]) === "No Lucy right now, thanks";
+      const check5 = window.lucy(["lucy"]) === "I love Lucy";
       const check6 =
-        window.lucy(['pancakes', 'diamonds', 'lucy']) ===
-        'In the sky with diamonds';
+        window.lucy(["pancakes", "diamonds", "lucy"]) ===
+        "In the sky with diamonds";
       const checks = [check1, check2, check3, check4, check5, check6];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -544,28 +544,28 @@ export class PlayAsUser extends Component {
     if (window.loser) {
       // Try & Catch Block
       try {
-        window.loser('The rain in spain falls mainly in the plain');
+        window.loser("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.loser('Hello loser you r a loser man') ===
-        'Hello loserbaby you r a loserbaby man';
+        window.loser("Hello loser you r a loser man") ===
+        "Hello loserbaby you r a loserbaby man";
       const check2 =
-        window.loser('loser loser omg loser man') ===
-        'loserbaby loserbaby omg loserbaby man';
+        window.loser("loser loser omg loser man") ===
+        "loserbaby loserbaby omg loserbaby man";
       const check3 =
         window.loser(
-          'I know now that my wife has become host to a Kandarian demon'
-        ) === 'I know now that my wife has become host to a Kandarian demon';
+          "I know now that my wife has become host to a Kandarian demon"
+        ) === "I know now that my wife has become host to a Kandarian demon";
       const checks = [check1, check2, check3];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -583,17 +583,17 @@ export class PlayAsUser extends Component {
       // Custom Test
       const check1 =
         window.isItSafe([12.5, 3]) ===
-        'is it safe?is it safe?is it safe?is it safe?is it safe?is it safe?is it safe?is it safe?is it safe?is it safe?';
-      const check2 = window.isItSafe([12.5, 7, 7]) === 'is it safe?is it safe?';
+        "is it safe?is it safe?is it safe?is it safe?is it safe?is it safe?is it safe?is it safe?is it safe?is it safe?";
+      const check2 = window.isItSafe([12.5, 7, 7]) === "is it safe?is it safe?";
       const check3 =
         window.isItSafe([12.5, 9]) ===
-        'is it safe?is it safe?is it safe?is it safe?';
+        "is it safe?is it safe?is it safe?is it safe?";
       const checks = [check1, check2, check3];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -613,40 +613,40 @@ export class PlayAsUser extends Component {
       const m = d.getMonth();
       let month;
       if (m === 0) {
-        month = 'January';
+        month = "January";
       }
       if (m === 1) {
-        month = 'February';
+        month = "February";
       }
       if (m === 2) {
-        month = 'March';
+        month = "March";
       }
       if (m === 3) {
-        month = 'April';
+        month = "April";
       }
       if (m === 4) {
-        month = 'May';
+        month = "May";
       }
       if (m === 5) {
-        month = 'June';
+        month = "June";
       }
       if (m === 6) {
-        month = 'July';
+        month = "July";
       }
       if (m === 7) {
-        month = 'August';
+        month = "August";
       }
       if (m === 8) {
-        month = 'September';
+        month = "September";
       }
       if (m === 9) {
-        month = 'October';
+        month = "October";
       }
       if (m === 10) {
-        month = 'November';
+        month = "November";
       }
       if (m === 11) {
-        month = 'December';
+        month = "December";
       }
       const check1 = window.monthRep(2) === month.repeat(2);
       const check2 = window.monthRep(99) === month.repeat(99);
@@ -656,7 +656,7 @@ export class PlayAsUser extends Component {
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -666,22 +666,22 @@ export class PlayAsUser extends Component {
     if (window.vowelSnubber) {
       // Try & Catch Block
       try {
-        window.vowelSnubber('The rain in spain falls mainly in the plain');
+        window.vowelSnubber("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
-      const check1 = window.vowelSnubber('Hello World') === 'hll WRLD';
+      const check1 = window.vowelSnubber("Hello World") === "hll WRLD";
       const check2 =
-        window.vowelSnubber('The rain in Spain falls mainly in the plain.') ===
-        'th RN n SPN flls MNLY n TH pln.';
+        window.vowelSnubber("The rain in Spain falls mainly in the plain.") ===
+        "th RN n SPN flls MNLY n TH pln.";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -691,24 +691,24 @@ export class PlayAsUser extends Component {
     if (window.valentinesDay) {
       // Try & Catch Block
       try {
-        window.valentinesDay('The rain in spain falls mainly in the plain');
+        window.valentinesDay("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.valentinesDay('I love valentines day day') ===
-        'I love hearts LOVELOVEdayLOVELOVE LOVELOVEdayLOVELOVE';
+        window.valentinesDay("I love valentines day day") ===
+        "I love hearts LOVELOVEdayLOVELOVE LOVELOVEdayLOVELOVE";
       const check2 =
-        window.valentinesDay('I love valentines day day valentinesday') ===
-        'I love hearts LOVELOVEdayLOVELOVE LOVELOVEdayLOVELOVE heartsLOVELOVEdayLOVELOVE';
+        window.valentinesDay("I love valentines day day valentinesday") ===
+        "I love hearts LOVELOVEdayLOVELOVE LOVELOVEdayLOVELOVE heartsLOVELOVEdayLOVELOVE";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -718,26 +718,26 @@ export class PlayAsUser extends Component {
     if (window.omgWords) {
       // Try & Catch Block
       try {
-        window.omgWords('The rain in spain falls mainly in the plain');
+        window.omgWords("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.omgWords('Ello wurld Hello Wurllld') ===
-        'Elloomg Helloomg Wurllldomg wurldomg';
+        window.omgWords("Ello wurld Hello Wurllld") ===
+        "Elloomg Helloomg Wurllldomg wurldomg";
       const check2 =
         window.omgWords(
-          'I know now that my wife has become host to a Kandarian demon'
+          "I know now that my wife has become host to a Kandarian demon"
         ) ===
-        'Iomg Kandarianomg aomg becomeomg demonomg hasomg hostomg knowomg myomg nowomg thatomg toomg wifeomg';
+        "Iomg Kandarianomg aomg becomeomg demonomg hasomg hostomg knowomg myomg nowomg thatomg toomg wifeomg";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -753,30 +753,30 @@ export class PlayAsUser extends Component {
         return;
       }
       // Custom Test
-      const check1 = window.smores(['hello']) === 'hungry';
-      const check2 = window.smores([{ hello: 'world' }]) === 'hungry';
-      const check3 = window.smores([['hello']]) === 'hungry';
-      const check4 = window.smores([true]) === 'hungry';
-      const check5 = window.smores([undefined]) === 'hungry';
-      const check6 = window.smores([null]) === 'hungry';
+      const check1 = window.smores(["hello"]) === "hungry";
+      const check2 = window.smores([{ hello: "world" }]) === "hungry";
+      const check3 = window.smores([["hello"]]) === "hungry";
+      const check4 = window.smores([true]) === "hungry";
+      const check5 = window.smores([undefined]) === "hungry";
+      const check6 = window.smores([null]) === "hungry";
       const checks = [check1, check2, check3, check4, check5, check6];
       for (let i = 0; i < 500; i += 1) {
         const divisibleBy6 = i % 6 === 0;
         const divisibleBy9 = i % 9 === 0;
         const divisibleBy6And9 = divisibleBy6 && divisibleBy9;
         if (divisibleBy6And9) {
-          checks.push(window.smores([i]) === 'chocolate');
+          checks.push(window.smores([i]) === "chocolate");
         } else if (divisibleBy6) {
-          checks.push(window.smores([i]) === 'graham cracker');
+          checks.push(window.smores([i]) === "graham cracker");
         } else if (divisibleBy9) {
-          checks.push(window.smores([i]) === 'marshmallow');
+          checks.push(window.smores([i]) === "marshmallow");
         }
       }
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -786,23 +786,23 @@ export class PlayAsUser extends Component {
     if (window.typeChecker) {
       // Try & Catch Block
       try {
-        window.typeChecker('The rain in spain falls mainly in the plain');
+        window.typeChecker("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
-      const check1 = window.typeChecker(['hello']) === 'Ray gun';
-      const check2 = window.typeChecker({ hello: 'world' }) === 'Obi-Wan';
-      const check3 = window.typeChecker('hello world') === 'Polly-o';
-      const check4 = window.typeChecker(1) === 'Numbness';
-      const check5 = window.typeChecker(true) === 'Wooly bully';
+      const check1 = window.typeChecker(["hello"]) === "Ray gun";
+      const check2 = window.typeChecker({ hello: "world" }) === "Obi-Wan";
+      const check3 = window.typeChecker("hello world") === "Polly-o";
+      const check4 = window.typeChecker(1) === "Numbness";
+      const check5 = window.typeChecker(true) === "Wooly bully";
       const checks = [check1, check2, check3, check4, check5];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -822,35 +822,35 @@ export class PlayAsUser extends Component {
       for (let i = 0; i < 200; i += 1) {
         const arr1 = window.cupcakeCandyCane(NaN);
         lengthChecks.push(arr1);
-        const arr2 = window.cupcakeCandyCane('string');
+        const arr2 = window.cupcakeCandyCane("string");
         lengthChecks.push(arr2);
       }
       const correctLength = lengthChecks.every(check => check.length < 6);
       if (correctLength) {
         const naNTest = window
           .cupcakeCandyCane(NaN)
-          .every(tst => tst === 'Cupcake');
+          .every(tst => tst === "Cupcake");
         const objTest = window
           .cupcakeCandyCane({})
-          .every(tst => tst === 'Candy cane');
+          .every(tst => tst === "Candy cane");
         const strTest = window
-          .cupcakeCandyCane('')
-          .every(tst => tst === 'Candy cane');
+          .cupcakeCandyCane("")
+          .every(tst => tst === "Candy cane");
         const boolTest = window
           .cupcakeCandyCane(true)
-          .every(tst => tst === 'Candy cane');
+          .every(tst => tst === "Candy cane");
         const nullTest = window
           .cupcakeCandyCane(null)
-          .every(tst => tst === 'Candy cane');
+          .every(tst => tst === "Candy cane");
         const undTest = window
           .cupcakeCandyCane(undefined)
-          .every(tst => tst === 'Candy cane');
+          .every(tst => tst === "Candy cane");
         const tests = [naNTest, strTest, objTest, boolTest, nullTest, undTest];
         const correct = tests.every(tst => tst === true);
         if (correct) {
           this.incrementChallenge();
         } else {
-          this.displayErrMsg('Incorrect answer');
+          this.displayErrMsg("Incorrect answer");
         }
       }
     }
@@ -861,7 +861,7 @@ export class PlayAsUser extends Component {
     if (window.milkshakeJelly) {
       // Try & Catch Block
       try {
-        window.milkshakeJelly(['The rain in spain falls mainly in the plain']);
+        window.milkshakeJelly(["The rain in spain falls mainly in the plain"]);
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
@@ -870,7 +870,7 @@ export class PlayAsUser extends Component {
       const nonStrCheck1 = window.milkshakeJelly([1])[0] === 1;
       const nonStrCheck2 = window.milkshakeJelly([true])[0] === true;
       const nonStrCheck3 =
-        window.milkshakeJelly([{ color: 'blue' }])[0].color === 'blue';
+        window.milkshakeJelly([{ color: "blue" }])[0].color === "blue";
       const nonStrCheck4 = window.milkshakeJelly([undefined])[0] === undefined;
       const nonStrCheck5 = window.milkshakeJelly([null])[0] === null;
       const nonStringCheck = [
@@ -883,14 +883,14 @@ export class PlayAsUser extends Component {
       const nonStringsPass = nonStringCheck.every(check => check === true);
       if (nonStringsPass) {
         const arr = window.milkshakeJelly([
-          ' Milkshake  ',
-          'Hello',
-          'World',
-          'Jelly',
-          '   Milkshake   ',
-          ' Milkshake   '
+          " Milkshake  ",
+          "Hello",
+          "World",
+          "Jelly",
+          "   Milkshake   ",
+          " Milkshake   "
         ]);
-        const jellyChars = arr[3].split('');
+        const jellyChars = arr[3].split("");
         let newJellyChars = jellyChars.map(char => {
           if (char.charCodeAt(0) === 160) {
             const newChar = String.fromCharCode(32);
@@ -898,13 +898,13 @@ export class PlayAsUser extends Component {
           }
           return char;
         });
-        newJellyChars = newJellyChars.join('');
-        const mJCheck1 = arr[0] === 'Milkshake';
-        const mJCheck2 = arr[1] === 'Hello';
-        const mJCheck3 = arr[2] === 'World';
-        const mJCheck4 = newJellyChars === '     Jelly     ';
-        const mJCheck5 = arr[0] === 'Milkshake';
-        const mJCheck6 = arr[0] === 'Milkshake';
+        newJellyChars = newJellyChars.join("");
+        const mJCheck1 = arr[0] === "Milkshake";
+        const mJCheck2 = arr[1] === "Hello";
+        const mJCheck3 = arr[2] === "World";
+        const mJCheck4 = newJellyChars === "     Jelly     ";
+        const mJCheck5 = arr[0] === "Milkshake";
+        const mJCheck6 = arr[0] === "Milkshake";
         const mJChecks = [
           mJCheck1,
           mJCheck2,
@@ -917,7 +917,7 @@ export class PlayAsUser extends Component {
         if (correct) {
           this.incrementChallenge();
         } else {
-          this.displayErrMsg('Incorrect answer');
+          this.displayErrMsg("Incorrect answer");
         }
       }
     }
@@ -928,28 +928,28 @@ export class PlayAsUser extends Component {
     if (window.theAviator) {
       // Try & Catch Block
       try {
-        window.theAviator('The rain', 'in spain');
+        window.theAviator("The rain", "in spain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.theAviator('The 1 2 3 rRrR99ain', 'in Spain')[0] === '12399';
+        window.theAviator("The 1 2 3 rRrR99ain", "in Spain")[0] === "12399";
       const check2 =
-        window.theAviator('The 1 2 3 rRrR99ain', 'in Spain')[1] === '';
+        window.theAviator("The 1 2 3 rRrR99ain", "in Spain")[1] === "";
       const check3 =
-        window.theAviator('The 1 2 3 rRrR99ain', 'in Spain')[2] === 'aaeiii';
+        window.theAviator("The 1 2 3 rRrR99ain", "in Spain")[2] === "aaeiii";
       const check4 =
-        window.theAviator('The 1 2 3 rRrR99ain', 'in Spain')[3] === 'RRST';
+        window.theAviator("The 1 2 3 rRrR99ain", "in Spain")[3] === "RRST";
       const check5 =
-        window.theAviator('The 1 2 3 rRrR99ain', 'in Spain')[4] === 'hnnnprr';
+        window.theAviator("The 1 2 3 rRrR99ain", "in Spain")[4] === "hnnnprr";
       const checks = [check1, check2, check3, check4, check5];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -959,26 +959,26 @@ export class PlayAsUser extends Component {
     if (window.stutter) {
       // Try & Catch Block
       try {
-        window.stutter('The rain in spain falls mainly in the plain');
+        window.stutter("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.stutter('The rain in Spain falls mainly in the plain.') ===
-        'ThThe rarain inin SpSpain fafalls mamainly inin ththe plplain.';
+        window.stutter("The rain in Spain falls mainly in the plain.") ===
+        "ThThe rarain inin SpSpain fafalls mamainly inin ththe plplain.";
       const check2 =
         window.stutter(
-          'I know now that my wife has become host to a Kandarian demon'
+          "I know now that my wife has become host to a Kandarian demon"
         ) ===
-        'II knknow nonow ththat mymy wiwife hahas bebecome hohost toto aa KaKandarian dedemon';
+        "II knknow nonow ththat mymy wiwife hahas bebecome hohost toto aa KaKandarian dedemon";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -988,36 +988,36 @@ export class PlayAsUser extends Component {
     if (window.tasteTheRainbow) {
       // Try & Catch Block
       try {
-        window.tasteTheRainbow('The rain in spain falls mainly in the plain');
+        window.tasteTheRainbow("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const redCheck = window
-        .tasteTheRainbow('The rain in Spain blah blah red')
+        .tasteTheRainbow("The rain in Spain blah blah red")
         .sort();
       const orangeCheck = window
-        .tasteTheRainbow('The rain in Spain blah blah orange')
+        .tasteTheRainbow("The rain in Spain blah blah orange")
         .sort();
       const yellowCheck = window
-        .tasteTheRainbow('The rain in Spain blah blah yellow')
+        .tasteTheRainbow("The rain in Spain blah blah yellow")
         .sort();
       const greenCheck = window
-        .tasteTheRainbow('The rain in Spain blah blah green')
+        .tasteTheRainbow("The rain in Spain blah blah green")
         .sort();
       const blueCheck = window
-        .tasteTheRainbow('The rain in Spain blah blah blue')
+        .tasteTheRainbow("The rain in Spain blah blah blue")
         .sort();
       const purpleCheck = window
-        .tasteTheRainbow('The rain in Spain blah blah purple')
+        .tasteTheRainbow("The rain in Spain blah blah purple")
         .sort();
-      const redBar = ['orange', 'yellow', 'green', 'blue', 'purple'].sort();
-      const orangeBar = ['red', 'yellow', 'green', 'blue', 'purple'].sort();
-      const yellowBar = ['red', 'orange', 'green', 'blue', 'purple'].sort();
-      const greenBar = ['red', 'orange', 'yellow', 'blue', 'purple'].sort();
-      const blueBar = ['red', 'orange', 'yellow', 'green', 'purple'].sort();
-      const purpleBar = ['red', 'orange', 'yellow', 'green', 'blue'].sort();
+      const redBar = ["orange", "yellow", "green", "blue", "purple"].sort();
+      const orangeBar = ["red", "yellow", "green", "blue", "purple"].sort();
+      const yellowBar = ["red", "orange", "green", "blue", "purple"].sort();
+      const greenBar = ["red", "orange", "yellow", "blue", "purple"].sort();
+      const blueBar = ["red", "orange", "yellow", "green", "purple"].sort();
+      const purpleBar = ["red", "orange", "yellow", "green", "blue"].sort();
       const redPassed =
         redCheck.length === redBar.length &&
         redCheck.every((redCheckI, i) => redCheckI === redBar[i]);
@@ -1037,8 +1037,8 @@ export class PlayAsUser extends Component {
         purpleCheck.length === purpleBar.length &&
         purpleCheck.every((purpleCheckI, i) => purpleCheckI === purpleBar[i]);
       const tTRCPassed =
-        window.tasteTheRainbow('The rain in Spain blah blah')[0] ===
-        'taste the rainbow';
+        window.tasteTheRainbow("The rain in Spain blah blah")[0] ===
+        "taste the rainbow";
       const tests = [
         redPassed,
         orangePassed,
@@ -1052,7 +1052,7 @@ export class PlayAsUser extends Component {
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1062,7 +1062,7 @@ export class PlayAsUser extends Component {
     if (window.innerStrip) {
       // Try & Catch Block
       try {
-        window.innerStrip('<div>hello world</div>');
+        window.innerStrip("<div>hello world</div>");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
@@ -1070,18 +1070,18 @@ export class PlayAsUser extends Component {
       // Custom Test
       const check1 =
         window.innerStrip(
-          '<div>I know now that my wife has become host to a Kandarian demon.</div>'
-        ) === 'I know now that my wife has become host to a Kandarian demon.';
+          "<div>I know now that my wife has become host to a Kandarian demon.</div>"
+        ) === "I know now that my wife has become host to a Kandarian demon.";
       const check2 =
         window.innerStrip(
-          '<span>The rain in Spain falls mainly in the plain.</span>'
-        ) === 'The rain in Spain falls mainly in the plain.';
+          "<span>The rain in Spain falls mainly in the plain.</span>"
+        ) === "The rain in Spain falls mainly in the plain.";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1091,23 +1091,23 @@ export class PlayAsUser extends Component {
     if (window.charSortReverse) {
       // Try & Catch Block
       try {
-        window.charSortReverse('The rain in spain falls mainly in the plain');
+        window.charSortReverse("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.charSortReverse('The rain in Spain') ===
-        '99887755544433332222111111111111111100000000';
+        window.charSortReverse("The rain in Spain") ===
+        "99887755544433332222111111111111111100000000";
       const check2 =
-        window.charSortReverse('I know now') === '997733322111111111111111000';
+        window.charSortReverse("I know now") === "997733322111111111111111000";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1124,22 +1124,22 @@ export class PlayAsUser extends Component {
       }
       // Custom Test
       const check1 =
-        window.numberBouncer(9) === 'not cool bro, I want something better';
+        window.numberBouncer(9) === "not cool bro, I want something better";
       const check2 =
-        window.numberBouncer(Number.MAX_VALUE) === 'pretty big number dude';
+        window.numberBouncer(Number.MAX_VALUE) === "pretty big number dude";
       const check3 =
-        window.numberBouncer(Number.MIN_VALUE) === 'pretty small number dude';
+        window.numberBouncer(Number.MIN_VALUE) === "pretty small number dude";
       const check4 =
-        window.numberBouncer(Number.POSITIVE_INFINITY) === 'I love infinity';
+        window.numberBouncer(Number.POSITIVE_INFINITY) === "I love infinity";
       const check5 =
         window.numberBouncer(Number.NEGATIVE_INFINITY) ===
-        'Weird but cool, negative infinity is cool';
+        "Weird but cool, negative infinity is cool";
       const checks = [check1, check2, check3, check4, check5];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1149,24 +1149,24 @@ export class PlayAsUser extends Component {
     if (window.frankenstring) {
       // Try & Catch Block
       try {
-        window.frankenstring('The rain in spain falls mainly in the plain');
+        window.frankenstring("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.frankenstring('The rain') ===
-        '\b\u0004\u0001\u0000\u0004\u0001\u0000\u0001\u0003\u0002\u0001\u0001\u0004\t\u0007\u0001\u0000\u0005\u0001\u0001\u0000';
+        window.frankenstring("The rain") ===
+        "\b\u0004\u0001\u0000\u0004\u0001\u0000\u0001\u0003\u0002\u0001\u0001\u0004\t\u0007\u0001\u0000\u0005\u0001\u0001\u0000";
       const check2 =
-        window.frankenstring('in Spain') ===
-        '\u0001\u0000\u0005\u0001\u0001\u0000\u0003\u0002\b\u0003\u0001\u0001\u0002\t\u0007\u0001\u0000\u0005\u0001\u0001\u0000';
+        window.frankenstring("in Spain") ===
+        "\u0001\u0000\u0005\u0001\u0001\u0000\u0003\u0002\b\u0003\u0001\u0001\u0002\t\u0007\u0001\u0000\u0005\u0001\u0001\u0000";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1176,25 +1176,25 @@ export class PlayAsUser extends Component {
     if (window.camelChars) {
       // Try & Catch Block
       try {
-        window.camelChars('The rain in spain falls mainly in the plain');
+        window.camelChars("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.camelChars('The rain in Spain falls mainly in the plain.') ===
-        'the rain in spain fallS MAINLY IN THE PLAIN.';
+        window.camelChars("The rain in Spain falls mainly in the plain.") ===
+        "the rain in spain fallS MAINLY IN THE PLAIN.";
       const check2 =
         window.camelChars(
-          'I know now that my wife has become host to a Kandarian demon.'
-        ) === 'i know now that my wife has beCOME HOST TO A KANDARIAN DEMON.';
+          "I know now that my wife has become host to a Kandarian demon."
+        ) === "i know now that my wife has beCOME HOST TO A KANDARIAN DEMON.";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1204,24 +1204,24 @@ export class PlayAsUser extends Component {
     if (window.iLoveVowels) {
       // Try & Catch Block
       try {
-        window.iLoveVowels('The rain in spain falls mainly in the plain');
+        window.iLoveVowels("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.iLoveVowels('I know now that my wife.') ===
-        'I knooooow nooooow thaaaaat my wiiiiifeeeee.';
+        window.iLoveVowels("I know now that my wife.") ===
+        "I knooooow nooooow thaaaaat my wiiiiifeeeee.";
       const check2 =
-        window.iLoveVowels('The rain in Spain.') ===
-        'Theeeee raaaaaiiiiin iiiiin Spaaaaaiiiiin.';
+        window.iLoveVowels("The rain in Spain.") ===
+        "Theeeee raaaaaiiiiin iiiiin Spaaaaaiiiiin.";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1243,23 +1243,23 @@ export class PlayAsUser extends Component {
         const by5 = i % 5 === 0;
         const by4and5 = i % 4 === 0 && i % 5 === 0;
         if (by4and5) {
-          checkStore.push(window.catfish(i) === 'CatFish');
+          checkStore.push(window.catfish(i) === "CatFish");
         } else if (by4) {
-          checkStore.push(window.catfish(i) === 'Cat');
+          checkStore.push(window.catfish(i) === "Cat");
         } else if (by5) {
-          checkStore.push(window.catfish(i) === 'Fish');
+          checkStore.push(window.catfish(i) === "Fish");
         }
       }
-      checkStore.push(window.catfish([1]) === 'Sushi please');
-      checkStore.push(window.catfish({ color: 'red' }) === 'Sushi please');
-      checkStore.push(window.catfish(true) === 'Sushi please');
-      checkStore.push(window.catfish(null) === 'Sushi please');
-      checkStore.push(window.catfish(undefined) === 'Sushi please');
+      checkStore.push(window.catfish([1]) === "Sushi please");
+      checkStore.push(window.catfish({ color: "red" }) === "Sushi please");
+      checkStore.push(window.catfish(true) === "Sushi please");
+      checkStore.push(window.catfish(null) === "Sushi please");
+      checkStore.push(window.catfish(undefined) === "Sushi please");
       const correct = checkStore.every(item => item === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1269,25 +1269,25 @@ export class PlayAsUser extends Component {
     if (window.weirdWords) {
       // Try & Catch Block
       try {
-        window.weirdWords('The rain in spain falls mainly in the plain');
+        window.weirdWords("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.weirdWords('The rain in Spain falls mainly in the plain.') ===
-        'THE rain IN spain FALLS mainly IN the PLAIN.';
+        window.weirdWords("The rain in Spain falls mainly in the plain.") ===
+        "THE rain IN spain FALLS mainly IN the PLAIN.";
       const check2 =
         window.weirdWords(
-          'I know now that my wife has become host to a Kandarian demon.'
-        ) === 'I know NOW that MY wife HAS become HOST to A kandarian DEMON.';
+          "I know now that my wife has become host to a Kandarian demon."
+        ) === "I know NOW that MY wife HAS become HOST to A kandarian DEMON.";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1297,22 +1297,22 @@ export class PlayAsUser extends Component {
     if (window.riceMilk) {
       // Try & Catch Block
       try {
-        window.riceMilk('The rain in spain falls mainly in the plain');
+        window.riceMilk("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.riceMilk('omg i love rice milk') ===
-        'how do you milk a grain of rice?';
-      const check2 = window.riceMilk('omg i love water') === 'Almond milk?';
+        window.riceMilk("omg i love rice milk") ===
+        "how do you milk a grain of rice?";
+      const check2 = window.riceMilk("omg i love water") === "Almond milk?";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1322,7 +1322,7 @@ export class PlayAsUser extends Component {
     if (window.onlyLowerCase) {
       // Try & Catch Block
       try {
-        window.onlyLowerCase('The rain in spain falls mainly in the plain');
+        window.onlyLowerCase("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
@@ -1330,16 +1330,16 @@ export class PlayAsUser extends Component {
       // Custom Test
       const lengthChecks = [];
       for (let i = 0; i < 100; i += 1) {
-        lengthChecks.push(window.onlyLowerCase('Hello World'));
+        lengthChecks.push(window.onlyLowerCase("Hello World"));
       }
       const correctLength = lengthChecks.every(check => check.length < 11);
       if (correctLength) {
-        const valChecks = window.onlyLowerCase('Hello World');
-        const correct = valChecks.every(check => check === 'ello orld');
+        const valChecks = window.onlyLowerCase("Hello World");
+        const correct = valChecks.every(check => check === "ello orld");
         if (correct) {
           this.incrementChallenge();
         } else {
-          this.displayErrMsg('Incorrect answer');
+          this.displayErrMsg("Incorrect answer");
         }
       }
     }
@@ -1350,23 +1350,23 @@ export class PlayAsUser extends Component {
     if (window.alice) {
       // Try & Catch Block
       try {
-        window.alice(['The rain in spain falls mainly in the plain']);
+        window.alice(["The rain in spain falls mainly in the plain"]);
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.alice(['Gina', 'Tina']) ===
-        'Alice is not home can you please leave a message?';
-      const check2 = window.alice(['Gina', 'Alice']) === 'Which Alice?';
-      const check3 = window.alice(['Dilbert', 'Alice']) === 'Coffee';
+        window.alice(["Gina", "Tina"]) ===
+        "Alice is not home can you please leave a message?";
+      const check2 = window.alice(["Gina", "Alice"]) === "Which Alice?";
+      const check3 = window.alice(["Dilbert", "Alice"]) === "Coffee";
       const checks = [check1, check2, check3];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1376,22 +1376,22 @@ export class PlayAsUser extends Component {
     if (window.hipHop) {
       // Try & Catch Block
       try {
-        window.hipHop('The rain in spain falls mainly in the plain');
+        window.hipHop("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.hipHop('A rabbit with a broken hip') ===
-        'A rabbit with a broken hiphop';
-      const check2 = window.hipHop('My hip is broke') === 'My hiphop is broke';
+        window.hipHop("A rabbit with a broken hip") ===
+        "A rabbit with a broken hiphop";
+      const check2 = window.hipHop("My hip is broke") === "My hiphop is broke";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1402,7 +1402,7 @@ export class PlayAsUser extends Component {
       // Try & Catch Block
       try {
         window.peanutButterJellyTime([
-          'The rain in spain falls mainly in the plain'
+          "The rain in spain falls mainly in the plain"
         ]);
       } catch (err) {
         this.displayErrMsg(err.toString());
@@ -1411,16 +1411,16 @@ export class PlayAsUser extends Component {
       // Custom Test
       const check1 =
         window.peanutButterJellyTime([3, 7, 6]) ===
-        'peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!';
+        "peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!";
       const check2 =
         window.peanutButterJellyTime([3, 7, 2, 2]) ===
-        'peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!';
+        "peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!peanut butter jelly time!";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1430,22 +1430,22 @@ export class PlayAsUser extends Component {
     if (window.outerStrip) {
       // Try & Catch Block
       try {
-        window.outerStrip('<div>hello world</div>');
+        window.outerStrip("<div>hello world</div>");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.outerStrip('<div>Hello World</div>') === '<div></div>';
+        window.outerStrip("<div>Hello World</div>") === "<div></div>";
       const check2 =
-        window.outerStrip('<span>Hello World</span>') === '<span></span>';
+        window.outerStrip("<span>Hello World</span>") === "<span></span>";
       const checks = [check1, check2];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1455,21 +1455,21 @@ export class PlayAsUser extends Component {
     if (window.iHateVowels) {
       // Try & Catch Block
       try {
-        window.iHateVowels('The rain in spain falls mainly in the plain');
+        window.iHateVowels("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.iHateVowels('I know now that my wife is an umbrella') ===
-        'I kn0w n0w th@t my w1f3 1s @n vmbr3ll@';
+        window.iHateVowels("I know now that my wife is an umbrella") ===
+        "I kn0w n0w th@t my w1f3 1s @n vmbr3ll@";
       const checks = [check1];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1491,26 +1491,26 @@ export class PlayAsUser extends Component {
         const by12 = i % 12 === 0;
         const by9and12 = i % 9 === 0 && i % 12 === 0;
         if (by9and12) {
-          checkStore.push(window.bubbleBobble(i) === 'BubbleBobble');
+          checkStore.push(window.bubbleBobble(i) === "BubbleBobble");
         } else if (by9) {
-          checkStore.push(window.bubbleBobble(i) === 'Bubble');
+          checkStore.push(window.bubbleBobble(i) === "Bubble");
         } else if (by12) {
-          checkStore.push(window.bubbleBobble(i) === 'Bobble');
+          checkStore.push(window.bubbleBobble(i) === "Bobble");
         }
       }
-      checkStore.push(window.bubbleBobble(1) === 'Pop the bubble');
-      checkStore.push(window.bubbleBobble([]) === 'Pop the bubble');
+      checkStore.push(window.bubbleBobble(1) === "Pop the bubble");
+      checkStore.push(window.bubbleBobble([]) === "Pop the bubble");
       checkStore.push(
-        window.bubbleBobble({ color: 'red' }) === 'Pop the bubble'
+        window.bubbleBobble({ color: "red" }) === "Pop the bubble"
       );
-      checkStore.push(window.bubbleBobble(true) === 'Pop the bubble');
-      checkStore.push(window.bubbleBobble(null) === 'Pop the bubble');
-      checkStore.push(window.bubbleBobble(undefined) === 'Pop the bubble');
+      checkStore.push(window.bubbleBobble(true) === "Pop the bubble");
+      checkStore.push(window.bubbleBobble(null) === "Pop the bubble");
+      checkStore.push(window.bubbleBobble(undefined) === "Pop the bubble");
       const correct = checkStore.every(item => item === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1520,21 +1520,21 @@ export class PlayAsUser extends Component {
     if (window.aintNobodyGotTimeForThat) {
       // Try & Catch Block
       try {
-        window.aintNobodyGotTimeForThat('<div>Hello World</div>');
+        window.aintNobodyGotTimeForThat("<div>Hello World</div>");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.aintNobodyGotTimeForThat('<div>Hello World</div>') ===
-        '<div>nobody got time for that</div>';
+        window.aintNobodyGotTimeForThat("<div>Hello World</div>") ===
+        "<div>nobody got time for that</div>";
       const checks = [check1];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1544,28 +1544,28 @@ export class PlayAsUser extends Component {
     if (window.stringBouncer) {
       // Try & Catch Block
       try {
-        window.stringBouncer('The rain in spain falls mainly in the plain');
+        window.stringBouncer("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.stringBouncer('<div>Hello Broh</div>') === 'great html bro';
+        window.stringBouncer("<div>Hello Broh</div>") === "great html bro";
       const check2 =
-        window.stringBouncer('<span>Omg</span>') === 'great html bro';
+        window.stringBouncer("<span>Omg</span>") === "great html bro";
       const check3 =
-        window.stringBouncer('Hello Broh') ===
-        'nope, it has no opening and closing tags';
+        window.stringBouncer("Hello Broh") ===
+        "nope, it has no opening and closing tags";
       const check4 =
-        window.stringBouncer('Omg') ===
-        'nope, it has no opening and closing tags';
+        window.stringBouncer("Omg") ===
+        "nope, it has no opening and closing tags";
       const checks = [check1, check2, check3, check4];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1575,27 +1575,27 @@ export class PlayAsUser extends Component {
     if (window.xFiles) {
       // Try & Catch Block
       try {
-        window.xFiles('The rain in spain falls mainly in the plain');
+        window.xFiles("The rain in spain falls mainly in the plain");
       } catch (err) {
         this.displayErrMsg(err.toString());
         return;
       }
       // Custom Test
       const check1 =
-        window.xFiles('Falling aliens from outerspace') === 'I want to believe';
+        window.xFiles("Falling aliens from outerspace") === "I want to believe";
       const check2 =
-        window.xFiles('Killer undead aliens') === 'I want to believe';
+        window.xFiles("Killer undead aliens") === "I want to believe";
       const check3 =
-        window.xFiles('Falling zombies from outerspace') ===
-        'aliens do not exist';
+        window.xFiles("Falling zombies from outerspace") ===
+        "aliens do not exist";
       const check4 =
-        window.xFiles('Killer undead zombies') === 'aliens do not exist';
+        window.xFiles("Killer undead zombies") === "aliens do not exist";
       const checks = [check1, check2, check3, check4];
       const correct = checks.every(check => check === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1617,25 +1617,25 @@ export class PlayAsUser extends Component {
         const by11 = i % 11 === 0;
         const by6and11 = i % 6 === 0 && i % 11 === 0;
         if (by6and11) {
-          checkStore.push(window.route66(i) === 'HolyMoly');
+          checkStore.push(window.route66(i) === "HolyMoly");
         } else if (by6) {
-          checkStore.push(window.route66(i) === 'Holy');
+          checkStore.push(window.route66(i) === "Holy");
         } else if (by11) {
-          checkStore.push(window.route66(i) === 'Moly');
+          checkStore.push(window.route66(i) === "Moly");
         }
       }
-      checkStore.push(window.route66([1]) === 'What the heck is this?');
+      checkStore.push(window.route66([1]) === "What the heck is this?");
       checkStore.push(
-        window.route66({ color: 'red' }) === 'What the heck is this?'
+        window.route66({ color: "red" }) === "What the heck is this?"
       );
-      checkStore.push(window.route66(true) === 'What the heck is this?');
-      checkStore.push(window.route66(null) === 'What the heck is this?');
-      checkStore.push(window.route66(undefined) === 'What the heck is this?');
+      checkStore.push(window.route66(true) === "What the heck is this?");
+      checkStore.push(window.route66(null) === "What the heck is this?");
+      checkStore.push(window.route66(undefined) === "What the heck is this?");
       const correct = checkStore.every(item => item === true);
       if (correct) {
         this.incrementChallenge();
       } else {
-        this.displayErrMsg('Incorrect answer');
+        this.displayErrMsg("Incorrect answer");
       }
     }
   }
@@ -1705,8 +1705,8 @@ export class PlayAsUser extends Component {
                 value={this.props.code}
                 onChange={this.setCode}
                 options={{
-                  mode: 'javascript',
-                  theme: 'neo',
+                  mode: "javascript",
+                  theme: "neo",
                   lineNumbers: true,
                   lineWrapping: true,
                   tabSize: 2

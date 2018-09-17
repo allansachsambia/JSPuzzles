@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import rapunzelLight from "./../../images/rapunzel-light.png";
 import Logo2 from "../../svgs/Logo2";
-import LandingHeroStyles from "./../../styles/landing/landing-hero.css";
+import Styles from "./landing-hero.css";
 
 class LandingHero extends Component {
   render() {

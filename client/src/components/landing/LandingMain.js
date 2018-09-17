@@ -6,7 +6,7 @@ import LandingHero from "./LandingHero";
 import LandingInfo from "./LandingInfo";
 import Footer from "../Footer";
 import rapunzelLight from "../../images/rapunzel-light.png";
-import LandingMainStyles from "../../styles/landing/landing-main.css";
+import Styles from "./landing-main.css";
 
 class LandingMain extends Component {
   render() {

@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../../actions';
-import Nav from '../Nav';
-import Footer from '../Footer';
-import HelpSubmenu from './HelpSubmenu';
-import HelpCheatSheetStyles from '../../styles/help/help-cheat-sheet.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../actions";
+import Nav from "../Nav";
+import Footer from "../Footer";
+import HelpSubmenu from "./HelpSubmenu";
+import Styles from "./help-cheat-sheet.css";
 
 class HelpCheatSheet extends Component {
   componentDidMount() {
@@ -25,7 +25,7 @@ class HelpCheatSheet extends Component {
     const solutionsBlock = this.props.solutions.map((solution, i) =>
       <div key={solution.name} className="cheatsheet-solutions-block">
         <a name={solution.name} className="anchor">
-          {''}
+          {""}
         </a>
         <span className="solution-title">{`${i + 1}: ${solution.name}`}</span>
         <pre className="solution-section">

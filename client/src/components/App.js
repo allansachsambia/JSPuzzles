@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
-import LandingMain from './landing/LandingMain';
-import PlayAsUser from './play/PlayAsUser';
-import PlayAsGuest from './play/PlayAsGuest';
-import HelpCheatSheet from './help/HelpCheatSheet';
-import HelpUsingJytr from './help/HelpUsingJytr';
-import FinishedMain from './finished/FinishedMain';
-import DashboardGuest from './dashboard/DashboardGuest';
-import DashboardUser from './dashboard/DashboardUser';
-import AppStyles from './../styles/app.css';
+import React, { Component } from "react";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../actions";
+import LandingMain from "./landing/LandingMain";
+import PlayAsUser from "./play/PlayAsUser";
+import PlayAsGuest from "./play/PlayAsGuest";
+import HelpCheatSheet from "./help/HelpCheatSheet";
+import HelpUsingJytr from "./help/HelpUsingJytr";
+import FinishedMain from "./finished/FinishedMain";
+import DashboardGuest from "./dashboard/DashboardGuest";
+import DashboardUser from "./dashboard/DashboardUser";
+import Styles from "./app.css";
 
 class App extends Component {
   componentDidMount() {
@@ -71,7 +71,7 @@ class App extends Component {
         <div>
           <Switch>
             {this.renderRootRoute()}
-            {this.renderProtectedRoute('/dashboard-user', DashboardUser)}
+            {this.renderProtectedRoute("/dashboard-user", DashboardUser)}
             {this.renderDashboardRoute()}
             {this.renderPlayRoute()}
             <Route exact path="/cheat-sheet" component={HelpCheatSheet} />

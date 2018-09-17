@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import CloseButton from './../../svgs/CloseButton';
-import PlayCheatModalStyles from './../../styles/play/play-cheat-modal.css';
-import * as actions from '../../actions';
-import Logo from './../../svgs/Logo';
-import Codemirror from 'react-codemirror';
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/neo.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import CloseButton from "./../../svgs/CloseButton";
+import * as actions from "../../actions";
+import Logo from "./../../svgs/Logo";
+import Codemirror from "react-codemirror";
+import "codemirror/mode/javascript/javascript";
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/neo.css";
+import Styles from "./play-cheat-modal.css";
 
 class PlayCheatModal extends Component {
   constructor(props) {
@@ -19,21 +19,21 @@ class PlayCheatModal extends Component {
   }
 
   closeModal() {
-    const modal = document.querySelector('.play-cheat-modal');
-    const modalBox = document.querySelector('.box');
-    const querySection = document.querySelector('.query-section').style;
-    const answerSection = document.querySelector('.answer-section').style;
-    answerSection.display = 'none';
-    querySection.display = 'initial';
-    modal.style.display = 'none';
-    modalBox.style.display = 'none';
+    const modal = document.querySelector(".play-cheat-modal");
+    const modalBox = document.querySelector(".box");
+    const querySection = document.querySelector(".query-section").style;
+    const answerSection = document.querySelector(".answer-section").style;
+    answerSection.display = "none";
+    querySection.display = "initial";
+    modal.style.display = "none";
+    modalBox.style.display = "none";
   }
 
   displayTheAnswer() {
-    const querySection = document.querySelector('.query-section').style;
-    querySection.display = 'none';
-    const answerSection = document.querySelector('.answer-section').style;
-    answerSection.display = 'initial';
+    const querySection = document.querySelector(".query-section").style;
+    querySection.display = "none";
+    const answerSection = document.querySelector(".answer-section").style;
+    answerSection.display = "initial";
   }
 
   render() {

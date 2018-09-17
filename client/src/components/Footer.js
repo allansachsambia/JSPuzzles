@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import GithubLogo from '../svgs/GithubLogo';
-import DashboardFooterStyles from '../styles/footer.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import GithubLogo from "../svgs/GithubLogo";
+import Styles from "./footer.css";
 
 class Footer extends Component {
   render() {

@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../../actions';
-import Nav from '../Nav';
-import Footer from '../Footer';
-import _ from 'lodash';
-import DashboardResetModal from './DashboardResetModal';
-import DashboardUserStyles from '../../styles/dashboard/dashboard-user.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../actions";
+import Nav from "../Nav";
+import Footer from "../Footer";
+import _ from "lodash";
+import DashboardResetModal from "./DashboardResetModal";
+import Styles from "./dashboard-user.css";
 
 export class DashboardUser extends Component {
   componentDidMount() {
@@ -26,8 +26,8 @@ export class DashboardUser extends Component {
   }
 
   displayDashboardResetModal() {
-    document.querySelector('.dashboard-reset-modal').style.display = 'initial';
-    document.querySelector('.box').style.display = 'initial';
+    document.querySelector(".dashboard-reset-modal").style.display = "initial";
+    document.querySelector(".box").style.display = "initial";
   }
 
   initialSetup() {
@@ -69,14 +69,14 @@ export class DashboardUser extends Component {
   }
 
   render() {
-    const username = this.props.auth ? this.props.auth.displayName : 'Guest';
+    const username = this.props.auth ? this.props.auth.displayName : "Guest";
     const totalQuestions = this.props.questions.length - 1;
     const amountFinished = this.props.current || 0;
     const percentageCompleted = amountFinished / totalQuestions * 100;
 
     return (
       <div className="dashboard-user">
-        <Nav username={username} path={'dashboard'} for="dashboard" />
+        <Nav username={username} path={"dashboard"} for="dashboard" />
         <DashboardResetModal userType="user" />
         <div className="inner-wrap">
           <div className="top-dash">
@@ -92,7 +92,7 @@ export class DashboardUser extends Component {
               </div>
               <div className="button-wrap">
                 <div className="top-play-button">
-                  <Link to={'/play'}>
+                  <Link to={"/play"}>
                     <button>
                       PLAY JYTR
                       <i className="fa fa-play-circle-o" aria-hidden="true" />

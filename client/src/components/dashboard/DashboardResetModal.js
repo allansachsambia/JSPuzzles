@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import CloseButton from './../../svgs/CloseButton';
-import DashboardResetModalStyles from './../../styles/dashboard/dashboard-reset-modal.css';
-import * as actions from '../../actions';
-import Logo from './../../svgs/Logo';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import CloseButton from "./../../svgs/CloseButton";
+import * as actions from "../../actions";
+import Logo from "./../../svgs/Logo";
+import Styles from "./dashboard-reset-modal.css";
 
 class DashboardResetModal extends Component {
   constructor(props) {
@@ -15,19 +15,19 @@ class DashboardResetModal extends Component {
   }
 
   closeModal() {
-    const modal = document.querySelector('.dashboard-reset-modal');
-    const modalBox = document.querySelector('.box');
-    modal.style.display = 'none';
-    modalBox.style.display = 'none';
+    const modal = document.querySelector(".dashboard-reset-modal");
+    const modalBox = document.querySelector(".box");
+    modal.style.display = "none";
+    modalBox.style.display = "none";
   }
 
   resetWholeApp() {
-    if (this.props.userType === 'user') {
+    if (this.props.userType === "user") {
       this.props.updateCode({ code: this.props.questions, current: 0 });
     }
 
     this.props.setCurrent(0);
-    this.props.setError('');
+    this.props.setError("");
     this.props.setAnswers(this.props.questions);
     this.props.setCode(this.props.questions[0].code);
 

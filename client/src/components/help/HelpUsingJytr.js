@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Nav from '../Nav';
-import Footer from '../Footer';
-import HelpSubmenu from './HelpSubmenu';
-import HelpUsingJytrStyles from './../../styles/help/help-using-jytr.css';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Nav from "../Nav";
+import Footer from "../Footer";
+import HelpSubmenu from "./HelpSubmenu";
+import Styles from "./help-using-jytr.css";
 
 class HelpUsingJytr extends Component {
   componentDidMount() {

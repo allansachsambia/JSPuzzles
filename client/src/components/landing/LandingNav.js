@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Logo from './../../svgs/Logo';
-import GuestIcon from './../../svgs/GuestIcon';
-import LandingNavStyles from './../../styles/landing/landing-nav.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import Logo from "./../../svgs/Logo";
+import GuestIcon from "./../../svgs/GuestIcon";
+import Styles from "./landing-nav.css";
 
 const timeouts = [];
 
@@ -18,7 +18,7 @@ class LandingNav extends Component {
     timeouts.forEach(timeout => {
       clearTimeout(timeout);
     });
-    document.querySelector('.options-list').style.display = 'initial';
+    document.querySelector(".options-list").style.display = "initial";
   }
 
   handleDeselect(e) {
@@ -27,7 +27,7 @@ class LandingNav extends Component {
     });
     timeouts.push(
       setTimeout(() => {
-        document.querySelector('.options-list').style.display = 'none';
+        document.querySelector(".options-list").style.display = "none";
       }, 500)
     );
   }
@@ -37,7 +37,7 @@ class LandingNav extends Component {
       <nav className="landing-nav">
         <div className="left-side">
           <div className="branding">
-            <Link to={this.props.auth ? '/' : '/'}>
+            <Link to={this.props.auth ? "/" : "/"}>
               <Logo />
             </Link>
           </div>
@@ -61,10 +61,10 @@ class LandingNav extends Component {
             </div>
             <ul className="options-list">
               <li>
-                <Link to={'/play'}>Play</Link>
+                <Link to={"/play"}>Play</Link>
               </li>
               <li>
-                <Link to={'/about'}>About</Link>
+                <Link to={"/about"}>About</Link>
               </li>
               <li>
                 <a href="/auth/google">Sign in</a>

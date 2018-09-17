@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
-import * as actions from '../../actions';
-import CloseButton from './../../svgs/CloseButton';
-import PlayHeaderStyles from './../../styles/play/play-header.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../actions";
+import CloseButton from "./../../svgs/CloseButton";
+import Styles from "./play-header.css";
 
 export class PlayHeader extends Component {
   render() {

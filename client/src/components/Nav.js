@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Logo from "../svgs/Logo";
 import Logo2 from "../svgs/Logo2";
 import GuestIcon from "../svgs/GuestIcon";
-import NavStyles from "./../styles/nav.css";
+import Styles from "./nav.css";
 
 const timeouts = [];
 

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import LandingInfoStyles from './../../styles/landing/landing-info.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import Styles from "./landing-info.css";
 
 class LandingInfo extends Component {
   render() {
