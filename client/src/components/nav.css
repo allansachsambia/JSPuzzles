@@ -185,10 +185,7 @@
 }
 
 .nav.landing {
-  background: transparent;
-  .left-side-option {
-    display: none !important;
-  }
+  display: none !important;
 }
 
 .nav.landing .branding,

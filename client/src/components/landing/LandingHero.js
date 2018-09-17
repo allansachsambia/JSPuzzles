@@ -10,7 +10,8 @@ class LandingHero extends Component {
     return (
       <div className="landing-hero">
         <Link to={"/play"}>
-          <Logo2 />
+          <img src="http://www.allansachsambia.com/web-programming/jytr/splash.png" />
+          {/* <Logo2 /> */}
         </Link>
       </div>
     );

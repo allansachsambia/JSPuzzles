@@ -1,5 +1,8 @@
 .landing-main {
-  background-color: #000000;
+  background-color: #ffffff;
+  /* background-image: url("http://www.allansachsambia.com/web-programming/jytr/splash.png");
+  background-size: contain;
+  background-repeat: no-repeat; */
 }
 
 @media (max-width: 900px) {
