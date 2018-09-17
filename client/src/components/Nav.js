@@ -112,7 +112,11 @@ class Nav extends Component {
         <div className="left-side">
           <div className="branding">
             <Link to={this.props.auth ? "/" : "/"}>
-              <Logo2 />
+              {/* <Logo2 /> */}
+              <img
+                src="https://jytr-fullstack.herokuapp.com/splash-black-sm.png"
+                style={{ height: "50px" }}
+              />
             </Link>
           </div>
           <Link to={"/play"}>
