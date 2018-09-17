@@ -191,6 +191,11 @@
   }
 }
 
+.nav.landing .branding,
+.nav.landing .right-side {
+  display: none;
+}
+
 .nav.play .left-side .play-option,
 .nav.dashboard .left-side .dashboard-option,
 .nav.help .left-side .help-option {

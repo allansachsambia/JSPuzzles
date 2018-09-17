@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Nav from '../Nav';
-import LandingHero from './LandingHero';
-import LandingInfo from './LandingInfo';
-import Footer from '../Footer';
-import rapunzelLight from '../../images/rapunzel-light.png';
-import LandingMainStyles from '../../styles/landing/landing-main.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import Nav from "../Nav";
+import LandingHero from "./LandingHero";
+import LandingInfo from "./LandingInfo";
+import Footer from "../Footer";
+import rapunzelLight from "../../images/rapunzel-light.png";
+import LandingMainStyles from "../../styles/landing/landing-main.css";
 
 class LandingMain extends Component {
   render() {
