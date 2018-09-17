@@ -30,7 +30,7 @@
   }
 
   .play-controls {
-    background: #008aff;
+    background-color: #000000;
     position: fixed;
     width: 100%;
     display: flex;

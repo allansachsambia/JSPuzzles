@@ -7,28 +7,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   svg {
     fill: white;
     height: 40rem;
+    margin-bottom: 8rem;
   }
 
   img {
     width: 100rem;
     margin-bottom: 10rem;
-  }
-
-  button {
-    background: #008aff;
-    color: #ffffff;
-    border: none;
-    position: relative;
-    height: 60px;
-    font-size: 1.6em;
-    padding: 0 2em;
-    cursor: pointer;
-    transition: 800ms ease all;
-    outline: none;
-    width: 300px;
   }
 }
 
@@ -44,18 +32,8 @@
       margin-top: -8rem;
       margin-bottom: 10rem;
     }
-
     svg {
       height: 30rem;
-    }
-
-    button {
-      top: -25rem;
-
-      font-size: 2rem;
-      padding: 1rem 5rem;
-      border-radius: .5rem;
-      border: .4rem solid white;
     }
   }
 }

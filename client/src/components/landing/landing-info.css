@@ -3,8 +3,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  font-family: Roboto, sans-serif;
-  color: #045ba4;
+  font-family: Open Sans, sans-serif;
+  color: #201e1c;
   padding: 2rem 2rem 8rem 2rem;
 
   .fa {
@@ -27,6 +27,7 @@
       margin-bottom: 2rem;
       font-size: 1.25rem;
       line-height: 2rem;
+      padding: 0 8rem;
     }
   }
 }
@@ -38,10 +39,13 @@
       width: auto !important;
     }
   }
+  .landing-info .info-subsection .info-subsection-description {
+    padding: 0 4rem;
+  }
 }
 
 @media (max-width: 700px) {
-  .landing-info {
-    /* ... */
+  .landing-info .info-subsection .info-subsection-description {
+    padding: 0 2rem;
   }
 }

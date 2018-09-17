@@ -19,7 +19,7 @@ class LandingInfo extends Component {
         </div>
 
         <div className="info-subsection">
-          <div className="info-subsection-title">Project Details</div>
+          <div className="info-subsection-title">Project Information</div>
 
           <div>
             <i className="fa fa-github-alt" aria-hidden="true" />
@@ -28,7 +28,7 @@ class LandingInfo extends Component {
           <div className="info-subsection-description">
             For more information on the current state of this project, it&apos;s
             issues, to make recommendations or to help, check out the&nbsp;
-            <a href="https://github.com/allansachsambia/jytr">github repo</a>.
+            <a href="https://github.com/allansachsambia/jytr"> repo</a>.
           </div>
         </div>
       </div>
