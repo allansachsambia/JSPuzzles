@@ -9,7 +9,7 @@
 
   .fa {
     font-size: 20rem;
-    margin: 0 0 4rem 0;
+    margin: 0 0 3rem 0;
   }
 
   .info-subsection {
@@ -19,7 +19,7 @@
     text-align: center;
 
     .info-subsection-title {
-      font-size: 2rem;
+      font-size: 3rem;
       margin: 2rem;
     }
 

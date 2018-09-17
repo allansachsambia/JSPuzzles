@@ -1,138 +1,109 @@
 .footer {
   font-family: Open Sans, sans-serif;
   background-color: #000000;
-  border-top: .1rem solid #65b8ff;
   color: #ffffff;
-
-  .fa-github-alt {
-    font-size: 1.7rem;
-  }
-
-  a:link,
-  a:visited,
-  a:active {
-    color: #ffffff;
-  }
-
-  .bottom {
-    padding: .01rem 0.5rem 0.01rem 0.5rem;
-  }
-
-  .bottom {
-    background-color: #000000;
-  }
-
-  /* mini nav */
-  .mini-nav {
-    display: flex;
-    font-size: 1.7rem !important;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 14rem;
-    margin-bottom: 14rem;
-
-    .mini-nav-link {
-      margin: 2rem;
-      width: 200px;
-      border: 1px solid white;
-
-      /* background: #ffffff; */
-      border-radius: 4rem;
-    }
-
-    a {
-      padding: 1rem;
-      text-decoration: none;
-      display: block;
-      width: 100%;
-    }
-
-    div {
-      position: relative;
-      width: 33.333%;
-      display: inline-block;
-      text-align: center;
-      vertical-align: top;
-    }
-  }
-
-  /* social media */
-  .social-media {
-    margin: 0 auto;
-    margin-top: 4rem;
-    max-width: 110rem;
-    width: 180px;
-    display: flex;
-    justify-content: center;
-
-    div {
-      position: relative;
-      width: 33.333%;
-      display: inline-block;
-      text-align: center;
-    }
-
-    div rect {
-      fill: #045ba4;
-    }
-
-    .github-logo:hover path {
-      fill: #333;
-    }
-
-    div path {
-      fill: #ffffff;
-    }
-  }
-
-  /* horizontal rule */
-  hr {
-    background-color: #ffffff;
-    border: none;
-    outline: none;
-    height: 1px;
-    border: 0;
-    width: 15rem;
-  }
-
-  /* copyright */
-  .copyright {
-    text-align: center;
-    font-size: 1.2rem;
-    margin: 2.5rem;
-  }
-
-  .copyright a:link,
-  .copyright a:visited,
-  .copyright a:hover,
-  .copyright a:active {
-    text-decoration: none;
-    color: #666666;
-  }
+  padding-top: 4rem;
 }
 
+.footer a:link,
+.footer a:visited,
+.footer a:active {
+  color: #ffffff;
+}
+
+.footer .bottom {
+  padding: .01rem 0.5rem 0.01rem 0.5rem;
+}
+
+.footer .mini-nav {
+  display: flex;
+  font-size: 1.7rem !important;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* margin-top: 14rem;
+  margin-bottom: 14rem; */
+}
+
+.footer .mini-nav .mini-nav-link {
+  margin: 2rem;
+  width: 200px;
+  border: 1px solid white;
+  border-radius: 4rem;
+}
+
+.footer .mini-nav a {
+  padding: 1rem;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+.footer .mini-nav div {
+  position: relative;
+  width: 33.333%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+}
+
+.footer .social-media {
+  margin: 0 auto;
+  margin-top: 4rem;
+  max-width: 110rem;
+  width: 180px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer .social-media div {
+  position: relative;
+  width: 33.333%;
+  display: inline-block;
+  text-align: center;
+}
+
+.footer  .copyright {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 2.5rem;
+}
+
+.footer .copyright a:link,
+.footer .copyright a:visited,
+.footer .copyright a:hover,
+.footer .copyright a:active {
+  text-decoration: none;
+  color: #666666;
+}
+
+/* ----------------------------------- MD ----------------------------------- */
+@media (max-width: 1300px) {
+}
+
+/* ----------------------------------- SM ----------------------------------- */
 @media (max-width: 900px) {
-  .footer {
-    .bottom {
-      padding: 0.05rem 0.05rem 2rem 0.05rem;
-    }
+  .footer .bottom {
+    padding: 0.05rem 0.05rem 2rem 0.05rem;
+  }
 
-    /* mini nav */
-    .mini-nav {
-      font-size: 1.6rem !important;
-      flex-direction: column;
-    }
+  .footer .mini-nav {
+    font-size: 1.6rem !important;
+    flex-direction: column;
+  }
 
-    .copyright {
-      text-align: center;
-      font-size: 1.1rem !important;
-      margin: 1rem 0rem 0rem 0rem !important;
-    }
+  .footer .copyright {
+    text-align: center;
+    font-size: 1.1rem !important;
+    margin: 1rem 0rem 0rem 0rem !important;
   }
 }
 
+/* ----------------------------------- XS ----------------------------------- */
 @media (max-width: 700px) {
-  /* ... */
+}
+
+/* ---------------------------------- PRINT --------------------------------- */
+@media print {
 }
