@@ -52,6 +52,10 @@
     margin-bottom: 0;
   }
 
+  .landing-logo {
+    height: 70vw;
+  }
+
   .landing a {
     width: 40vw;
     position: relative;
