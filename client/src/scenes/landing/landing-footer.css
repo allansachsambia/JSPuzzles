@@ -35,14 +35,14 @@
 /* ----------------------------------- SM ----------------------------------- */
 @media (max-width: 900px) {
   .landing-footer {
-    margin-top: 110vw;
+    margin-top: 20px;
   }
 }
 
 /* ----------------------------------- XS ----------------------------------- */
 @media (max-width: 700px) {
   .landing-footer {
-    margin-top: 140vw;
+    margin-top: 0;
   }
 }
 

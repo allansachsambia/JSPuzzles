@@ -37,14 +37,6 @@
   position: absolute;
 }
 
-/* .hide {
-  display: none;
-}
-
-.show {
-  display: initial;
-} */
-
 /* ----------------------------------- MD ----------------------------------- */
 @media (max-width: 1300px) {
   .landing .landing-bolt {
@@ -56,41 +48,32 @@
 /* ----------------------------------- SM ----------------------------------- */
 @media (max-width: 900px) {
   .landing-main {
-    width: 140%;
-    margin-bottom: -120vw;
+    position: initial;
+    margin-bottom: 0;
   }
 
   .landing a {
-    width: 45vw;
-    top: -17vw;
+    width: 40vw;
+    position: relative;
+    top: -30px;
+    z-index: 10;
   }
 
   .landing .landing-trapezoid {
-    width: 100vw;
-    top: -30vw;
+    display: none;
   }
 
   .landing .landing-bolt {
-    width: 30vw;
-    margin-top: 30vw;
+    display: inline-block;
+    margin-top: 0;
+    width: 25vw;
+    position: relative;
+    top: -20px;
   }
 }
 
 /* ----------------------------------- XS ----------------------------------- */
 @media (max-width: 700px) {
-  .landing a {
-    width: 62vw;
-    top: -28vw;
-  }
-
-  .landing .landing-trapezoid {
-    top: -40vw;
-  }
-
-  .landing .landing-bolt {
-    width: 34vw;
-    margin-top: 42vw;
-  }
 }
 
 /* ---------------------------------- PRINT --------------------------------- */

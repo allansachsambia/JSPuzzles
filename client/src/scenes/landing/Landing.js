@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
-import LandingHero from "./LandingHero";
-import LandingInfo from "./LandingInfo";
 import LandingFooter from "./LandingFooter";
 import landingLogo from "./../../svgs/landing-logo.svg";
 import landingTitle from "./../../svgs/landing-title.svg";
