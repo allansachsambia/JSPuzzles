@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono');
+
+.play-as-guest .CodeMirror {
+  font-size: 2rem;
+  height: calc(100vh - 23rem);
+  margin-top: 6rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  padding-bottom: 4rem 0;
+  font-family: 'Fira Mono', monospace;
+}
+
+.play-as-guest .CodeMirror ::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.play-as-guest .CodeMirror ::-webkit-scrollbar-thumb {
+  background: #57647d;
+  border-radius: 0;
+}
+
+.play-as-guest .CodeMirror .cm-s-neo .CodeMirror-activeline-background {
+  background: #ffffff;
+}
+
+.play-as-guest .CodeMirror .cm-s-neo .CodeMirror-cursor {
+  background: none !important;
+  background-color: none !important;
+  border-left: 1px solid black !important;
+}
+
+.play-as-guest .play-controls {
+  background-color: #ffffff;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  top: initial;
+  bottom: 0;
+  z-index: 99999;
+  padding: 0rem;
+  height: 5rem;
+  justify-content: space-around;
+  box-shadow: 0px 0px 0px #888, 0px -1px 1px #eeeeee;
+}
+
+.play-as-guest .play-controls .control {
+  margin-right: 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-as-guest .play-controls .control:hover {
+  cursor: pointer;
+}
+
+.play-as-guest .play-controls .eraser-icon,
+.play-as-guest .play-controls .forward-icon,
+.play-as-guest .play-controls .bomb-icon,
+.play-as-guest .play-controls .cheat-icon,
+.play-as-guest .play-controls .help-icon,
+.play-as-guest .play-controls .dashboard-icon {
+  color: #999999;
+  font-size: 3rem;
+}
+
+.play-as-guest .errors {
+  z-index: 99998;
+  background: #ffffff;
+  color: #64677c;
+  font-family: 'Fira Mono', monospace;
+  letter-spacing: -.1rem;
+  font-size: 1.3rem;
+  min-height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 5rem;
+  box-shadow: 0px 0px 0px #888, 0px -1px 1px #eeeeee;
+}
+
+/* ----------------------------------- MD ----------------------------------- */
+@media (max-width: 1300px) {
+}
+
+/* ----------------------------------- SM ----------------------------------- */
+@media (max-width: 900px) {
+}
+
+/* ----------------------------------- XS ----------------------------------- */
+@media (max-width: 700px) {
+  .play-as-guest .CodeMirror {
+    font-size: 1.3rem;
+    height: calc(90vh - 5rem);
+    padding: 1rem .5rem;
+    height: calc(100vh - 14rem);
+    margin-top: 5rem;
+  }
+
+  .play-as-guest .errors {
+    bottom: 5rem;
+    font-size: 1.2rem;
+    min-height: 4rem;
+    line-height: 4rem;
+    letter-spacing: 0rem;
+  }
+}
+
+/* ---------------------------------- PRINT --------------------------------- */
+@media print {
+}

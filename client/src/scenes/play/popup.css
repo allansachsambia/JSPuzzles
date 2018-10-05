@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+.popup {
+  background: #ffffff;
+  padding: 20px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 999999;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Helvetica Neue", sans-serif;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.popup-inner-wrap {
+  border: 1px solid #aaaaaa;
+  padding: 20px;
+  width: 700px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup .popup-close-button-wrapper {
+  width: 100%;
+  cursor: pointer;
+  /* fill: #,; */
+  /* position: absolute; */
+  /* top: 1.5rem; */
+  /* right: 1.5rem; */
+
+  display: flex;
+  justify-content: flex-end;
+  height: 25px;
+}
+
+.popup .popup-close-button-wrapper svg {
+  width: 25px;
+  cursor: pointer;
+  fill: #555555;
+}
+
+.popup .popup-title {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  color: #555555;
+  font-size: 4rem;
+}
+
+.popup hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #aaaaaa;
+  margin: 1em 0;
+  padding: 0;
+  width: 100%;
+}
+
+.popup .popup-answer {
+  white-space: pre-wrap;
+  margin: 0;
+  color: #333333;
+  overflow: scroll;
+  font-size: 1.4rem;
+}
+
+/* ----------------------------------- MD ----------------------------------- */
+@media (max-width: 1300px) {
+}
+
+/* ----------------------------------- SM ----------------------------------- */
+@media (max-width: 900px) {
+}
+
+/* ----------------------------------- XS ----------------------------------- */
+@media (max-width: 700px) {
+  .popup {
+    background: #ffffff;
+    padding: 10px;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .popup-inner-wrap {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+/* ---------------------------------- PRINT --------------------------------- */
+@media print {
+}

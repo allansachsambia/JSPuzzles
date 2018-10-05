@@ -1,0 +1,43 @@
+.top {
+  background: #ffffff;
+  color: #333333;
+  font-family: roboto, arial;
+  font-size: 2.1rem;
+  box-shadow: 0rem .2rem .1rem #eeeeee;
+  height: 5.5rem;
+  position: fixed;
+  width: 100%;
+  z-index: 9995;
+  padding: 1.75rem;
+  top: 0rem;
+}
+
+.top .top-challenge-name {
+  flex-grow: 1;
+  text-align: center;
+  line-height: 3rem;
+}
+
+/* ----------------------------------- MD ----------------------------------- */
+@media (max-width: 1300px) {
+}
+
+/* ----------------------------------- SM ----------------------------------- */
+@media (max-width: 900px) {
+}
+
+/* ----------------------------------- XS ----------------------------------- */
+@media (max-width: 700px) {
+  .top {
+    height: 5.5rem;
+    font-size: 1.8rem;
+  }
+
+  .top .top-challenge-name {
+    line-height: 2.5rem;
+  }
+}
+
+/* ---------------------------------- PRINT --------------------------------- */
+@media print {
+}

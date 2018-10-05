@@ -1,0 +1,98 @@
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-main {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -44vw;
+}
+
+.landing a {
+  width: 30vw;
+  position: relative;
+  top: -12vw;
+  z-index: 10;
+}
+
+.landing .landing-trapezoid {
+  display: inline;
+  width: 100vw;
+  position: relative;
+  top: -16vw;
+  z-index: 1;
+}
+
+.landing .landing-bolt {
+  display: inline-block;
+  margin-top: 30rem;
+  width: 25vw;
+  position: absolute;
+}
+
+/* .hide {
+  display: none;
+}
+
+.show {
+  display: initial;
+} */
+
+/* ----------------------------------- MD ----------------------------------- */
+@media (max-width: 1300px) {
+  .landing .landing-bolt {
+    width: 25vw;
+    margin-top: 20rem;
+  }
+}
+
+/* ----------------------------------- SM ----------------------------------- */
+@media (max-width: 900px) {
+  .landing-main {
+    width: 140%;
+    margin-bottom: -120vw;
+  }
+
+  .landing a {
+    width: 45vw;
+    top: -17vw;
+  }
+
+  .landing .landing-trapezoid {
+    width: 100vw;
+    top: -30vw;
+  }
+
+  .landing .landing-bolt {
+    width: 30vw;
+    margin-top: 30vw;
+  }
+}
+
+/* ----------------------------------- XS ----------------------------------- */
+@media (max-width: 700px) {
+  .landing a {
+    width: 62vw;
+    top: -28vw;
+  }
+
+  .landing .landing-trapezoid {
+    top: -40vw;
+  }
+
+  .landing .landing-bolt {
+    width: 34vw;
+    margin-top: 42vw;
+  }
+}
+
+/* ---------------------------------- PRINT --------------------------------- */
+@media print {
+}

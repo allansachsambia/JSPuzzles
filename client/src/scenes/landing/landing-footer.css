@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Lekton');
+
+.landing-footer,
+.landing-footer * {
+  /* border: 1px dashed red; */
+}
+
+.landing-footer {
+  width: 100%;
+  margin-top: 40vw;
+}
+
+.landing-footer .landing-footer-horizontal-rules hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #dddddd;
+  margin: 2px;
+  padding: 0;
+}
+
+.landing-footer .landing-footer-actual {
+  background-color: #222222;
+  padding: 8rem;
+  color: #666666;
+  text-align: center;
+  font-size: 1.75rem;
+  font-family: 'Lekton', sans-serif;
+}
+
+/* ----------------------------------- MD ----------------------------------- */
+@media (max-width: 1300px) {
+}
+
+/* ----------------------------------- SM ----------------------------------- */
+@media (max-width: 900px) {
+  .landing-footer {
+    margin-top: 110vw;
+  }
+}
+
+/* ----------------------------------- XS ----------------------------------- */
+@media (max-width: 700px) {
+  .landing-footer {
+    margin-top: 140vw;
+  }
+}
+
+/* ---------------------------------- PRINT --------------------------------- */
+@media print {
+}

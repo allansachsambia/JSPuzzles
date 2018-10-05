@@ -1,9 +1,8 @@
 # Jytr
 
-![image](readme-header.png)
-<br ></a>
+![image](./Jytr.png)
 
-A code challenge app.
+A Javascript code challenge game.
 
 ## Code Challenges
 

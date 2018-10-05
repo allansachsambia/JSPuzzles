@@ -1,0 +1,45 @@
+.landing-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-hero a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: flex-start;
+}
+
+.landing-hero svg {
+  fill: black;
+  height: 40rem;
+  margin-bottom: 8rem;
+}
+
+.landing-hero img {
+  width: 100rem;
+  margin: 0rem;
+}
+
+/* ----------------------------------- MD ----------------------------------- */
+@media (max-width: 1300px) {
+}
+
+/* ----------------------------------- SM ----------------------------------- */
+@media (max-width: 900px) {
+}
+
+/* ----------------------------------- XS ----------------------------------- */
+@media (max-width: 700px) {
+  .landing-hero svg {
+    height: 30rem;
+  }
+}
+
+/* ---------------------------------- PRINT --------------------------------- */
+@media print {
+}

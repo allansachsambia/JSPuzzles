@@ -1,0 +1,53 @@
+.finished {
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.finished .inner-wrap {
+  padding: 4rem 0 8rem 0;
+  width: 75%;
+  max-width: 90rem;
+  margin: 0 auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.finished .description {
+  padding-top: 4rem;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.finished .congratulations-text,
+.finished .congratulations-image {
+  margin-bottom: 2rem;
+}
+
+.finished .small-icon svg {
+  width: 3rem;
+}
+
+.finished p {
+  margin: 1.5rem 0;
+}
+
+.finished h4 {
+  text-align: center;
+  margin: 4rem 0;
+}
+
+/* ----------------------------------- MD ----------------------------------- */
+@media (max-width: 1300px) {
+}
+
+/* ----------------------------------- SM ----------------------------------- */
+@media (max-width: 900px) {
+}
+
+/* ----------------------------------- XS ----------------------------------- */
+@media (max-width: 700px) {
+}
+
+/* ---------------------------------- PRINT --------------------------------- */
+@media print {
+}
