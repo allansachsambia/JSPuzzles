@@ -1,6 +1,6 @@
-# Jytr
+# JS Puzzles
 
-![image](./Jytr.png)
+![image](./js-puzzles.png)
 
 A Javascript code challenge game.
 
